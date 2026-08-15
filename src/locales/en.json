@@ -1,0 +1,173 @@
+{
+  "nav": {
+    "install": "Installation",
+    "features": "Features",
+    "demo": "Preview",
+    "security": "Security",
+    "faq": "FAQ",
+    "githubAria": "GitHub Repository",
+    "toggleMenu": "Toggle menu"
+  },
+  "hero": {
+    "title": "Assistant CLI",
+    "tagline": "A lightweight, modular, and localized shell wrapper.",
+    "description": "A lightweight, modular, and localized shell wrapper for Antigravity, Codex, Copilot, Ollama, OpenCode, and Custom Engines, supporting interactive chat, repository analysis, README generation, project summaries, and more."
+  },
+  "install": {
+    "terminal": "terminal",
+    "afterInstall": "After installing, test with:",
+    "viewDemo": "View command demo",
+    "copy": "Copy",
+    "copied": "Copied!"
+  },
+  "features": {
+    "badge": "Features",
+    "heading": "Built for Maximum Efficiency",
+    "subheading": "The scripts and binary code were designed to keep your system clean and guarantee instant startup.",
+    "items": [
+      {
+        "title": "Multi-Engine Support",
+        "description": "Native integration with Antigravity, Codex, Copilot, Ollama, and OpenCode, plus support for integrating other engines via custom scripts.",
+        "tag": "Versatile"
+      },
+      {
+        "title": "Specialized Skills",
+        "description": "Generate semantic commit messages with \"assistant commit\", project summaries with \"assistant resume\", and complete README files with \"assistant readme\".",
+        "tag": "Practical"
+      },
+      {
+        "title": "Full Extensibility",
+        "description": "Create new skills from Markdown files with \"assistant create skill\" and define custom dynamic shell functions inside custom/init.sh.",
+        "tag": "Customizable"
+      },
+      {
+        "title": "Multi-Language Support",
+        "description": "Localized interface in Portuguese, English, and Spanish, with support for custom languages in custom/locales/ and automatic fallback.",
+        "tag": "Global"
+      },
+      {
+        "title": "Simple Installation",
+        "description": "Automatic profile configuration in Bash, Zsh, and Fish, and transparent integrated execution in Windows PowerShell.",
+        "tag": "Cross-Platform"
+      },
+      {
+        "title": "Local Persistence",
+        "description": "Preferred models per engine, last engine used, interface language, think mode control, and stable/beta channel switching are persisted locally.",
+        "tag": "Manageable"
+      }
+    ]
+  },
+  "demo": {
+    "heading": "Simplicity at Your Fingertips",
+    "subheading": "See how simple it is to install, configure, and interact with Assistant CLI in your daily workflow.",
+    "sidebarTitle": "Demo Flows",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "items": [
+      {
+        "title": "Direct & Interactive Chat",
+        "command": "assistant \"Explain how state management works in React\"",
+        "output": [
+          "ℹ  Engine: opencode",
+          "ℹ  Model: opencode/big-pickle",
+          "In React, state management controls dynamic application data:",
+          "• Local State: useState / useReducer for individual components.",
+          "• Global State: Context API, Redux, or Zustand to share data across components.",
+          "• Server State: React Query / SWR for caching and API synchronization."
+        ]
+      },
+      {
+        "title": "Smart Semantic Commit",
+        "command": "assistant commit",
+        "output": [
+          "Analyzing repository with big-pickle (opencode)...",
+          "Suggested git commands:",
+          "git add engine.sh loader.sh",
+          "git commit -m \"feat(engine): add custom engine loader support\"",
+          "git add README.md",
+          "git commit -m \"docs(readme): update installation guide for Windows PowerShell\""
+        ]
+      },
+      {
+        "title": "General Status & Diagnostics",
+        "command": "assistant status",
+        "output": [
+          "Status",
+          "  Current engine: opencode",
+          "  Current model: opencode/big-pickle",
+          "  Current language: en",
+          "  Current release channel: stable",
+          "  Assistant CLI {{version}}"
+        ]
+      },
+      {
+        "title": "Quick Engine & Channel Switch",
+        "command": "assistant engine opencode && assistant channel beta",
+        "output": [
+          "✔ Engine changed to: opencode",
+          "ℹ Switching to release channel: beta...",
+          "Updating assistant...",
+          "[====================] 100%",
+          "ℹ  Assistant CLI {{version}}"
+        ]
+      }
+    ]
+  },
+  "security": {
+    "heading": "Fully Open Source",
+    "description": "The installer and assistant are 100% open source. You can inspect all code before running it, ensuring complete transparency and control over the installation process.",
+    "noRootTitle": "No Root System Modifications",
+    "noRootDesc": "The script installs strictly inside the user directory",
+    "githubBtn": "View on GitHub",
+    "linuxCardTitle": "Linux & macOS",
+    "linuxCardDesc": "To inspect the Bash script before running:",
+    "winCardTitle": "Windows",
+    "winCardDesc": "To inspect the PowerShell script before running:",
+    "viewScript": "View script"
+  },
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "subheading": "Everything you need to know about installing and operating Assistant CLI.",
+    "items": [
+      {
+        "question": "What exactly does the installation script do on my system?",
+        "answer": "The interactive installer clones the repository into ~/.config/assistant-cli (on Linux/macOS) or %LOCALAPPDATA%\\assistant-cli (on Windows), detects your shell (Bash, Zsh, Fish, or PowerShell), and adds the init.sh loader to your terminal profile (~/.bashrc, ~/.zshrc, config.fish, or $PROFILE). Everything is done in user space without requiring root or administrator privileges."
+      },
+      {
+        "question": "Which AI engines are natively supported?",
+        "answer": "Assistant CLI includes native support for Antigravity, GitHub Copilot, Ollama, OpenAI Codex, and OpenCode. Additionally, you can integrate any other provider or model by creating a .sh script inside custom/engines/."
+      },
+      {
+        "question": "How does Assistant CLI work on Windows via PowerShell?",
+        "answer": "On Windows, the PowerShell installer creates a transparent wrapper function in your profile ($PROFILE) that invokes bash (via Git Bash) behind the scenes. This lets you run the \"assistant\" command directly in PowerShell or Windows Terminal with full support for arguments, colors, and interactivity without opening Git Bash manually."
+      },
+      {
+        "question": "What are built-in Skills and how do I create new ones?",
+        "answer": "Skills are specialized modules with prompts and workflows designed for specific tasks: \"assistant commit\" analyzes git diff and generates semantic commits; \"assistant resume\" maps project trees and manifest files to summarize architecture; \"assistant readme\" generates comprehensive documentation in the selected language. You can easily create new skills with \"assistant create skill <name> <file.md>\"."
+      },
+      {
+        "question": "How do configuration persistence and model switching work?",
+        "answer": "All preferences (active engine, selected model for each engine, interface language, and release channel) are saved in data/config.txt. Each engine retains its own configured model in memory, allowing you to freely switch between providers without losing prior settings."
+      },
+      {
+        "question": "How do I update the assistant or switch between stable and beta channels?",
+        "answer": "To update to the latest version of your current channel, run \"assistant update\". To pin or test a specific version, use \"assistant update @{{version}}\". To switch between development and stable versions, run \"assistant channel beta\" or \"assistant channel stable\"."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "A lightweight, modular, and localized shell wrapper.",
+    "license": "Licensed under MIT."
+  },
+  "languages": {
+    "pt-BR": "Português (BR)",
+    "es": "Español (ES)",
+    "en": "English (US)",
+    "selectLanguage": "Select language"
+  },
+  "theme": {
+    "toggleTheme": "Toggle theme",
+    "lightMode": "Switch to light mode",
+    "darkMode": "Switch to dark mode"
+  }
+}

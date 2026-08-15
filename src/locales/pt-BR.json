@@ -1,0 +1,173 @@
+{
+  "nav": {
+    "install": "Instalação",
+    "features": "Recursos",
+    "demo": "Preview",
+    "security": "Segurança",
+    "faq": "FAQ",
+    "githubAria": "Repositório GitHub",
+    "toggleMenu": "Alternar menu"
+  },
+  "hero": {
+    "title": "Assistant CLI",
+    "tagline": "Um shell wrapper leve, modular e localizado.",
+    "description": "Um wrapper de shell leve, modular e localizado para Antigravity, Codex, Copilot, Ollama, OpenCode e Engines customizadas, com suporte a chat interativo, análise de repositório, geração de README, resumos de projetos e mais."
+  },
+  "install": {
+    "terminal": "terminal",
+    "afterInstall": "Após instalar, teste com:",
+    "viewDemo": "Ver demonstração de comandos",
+    "copy": "Copiar",
+    "copied": "Copiado!"
+  },
+  "features": {
+    "badge": "Recursos",
+    "heading": "Desenvolvido para Máxima Eficiência",
+    "subheading": "O código dos scripts e do binário foi projetado para não poluir seu sistema e garantir inicialização instantânea.",
+    "items": [
+      {
+        "title": "Suporte Multi-Engine",
+        "description": "Integração nativa com Antigravity, Codex, Copilot, Ollama e OpenCode, além de suporte para integrar outras engines via scripts customizados.",
+        "tag": "Versátil"
+      },
+      {
+        "title": "Skills Especializadas",
+        "description": "Gere mensagens de commit semânticas com \"assistant commit\", resumos de projetos com \"assistant resume\" e arquivos README completos com \"assistant readme\".",
+        "tag": "Prático"
+      },
+      {
+        "title": "Extensibilidade Total",
+        "description": "Crie novas skills a partir de arquivos Markdown com \"assistant create skill\" e defina funções dinâmicas em shell personalizadas dentro de custom/init.sh.",
+        "tag": "Customizável"
+      },
+      {
+        "title": "Suporte Multi-Language",
+        "description": "Interface localizada em Português, Inglês e Espanhol, com suporte a idiomas personalizados em custom/locales/ e fallback automático.",
+        "tag": "Global"
+      },
+      {
+        "title": "Instalação Simples",
+        "description": "Configuração automática de perfil em Bash, Zsh e Fish, e execução transparente e integrada no PowerShell do Windows.",
+        "tag": "Multi-Plataforma"
+      },
+      {
+        "title": "Persistência Local",
+        "description": "Modelos preferidos por engine, última engine utilizada, idioma da interface, controle de think mode, alternância entre canais stable/beta, são persistidos localmente.",
+        "tag": "Gerenciável"
+      }
+    ]
+  },
+  "demo": {
+    "heading": "Simplicidade na Ponta dos Dedos",
+    "subheading": "Veja como é simples instalar, configurar e interagir com o Assistant CLI no seu dia a dia.",
+    "sidebarTitle": "Fluxos de Demonstração",
+    "copy": "Copiar",
+    "copied": "Copiado!",
+    "items": [
+      {
+        "title": "Chat Direto & Interativo",
+        "command": "assistant \"Explique como funciona o gerenciamento de estados no React\"",
+        "output": [
+          "ℹ  Engine: opencode",
+          "ℹ  Modelo: opencode/big-pickle",
+          "No React, o gerenciamento de estado controla dados dinâmicos da aplicação:",
+          "• Estado Local: useState / useReducer para componentes individuais.",
+          "• Estado Global: Context API, Redux ou Zustand para compartilhar dados.",
+          "• Estado de Servidor: React Query / SWR para cache e sincronização de APIs."
+        ]
+      },
+      {
+        "title": "Commit Semântico Inteligente",
+        "command": "assistant commit",
+        "output": [
+          "Analisando repositório com big-pickle (opencode)...",
+          "Comandos git sugeridos:",
+          "git add engine.sh loader.sh",
+          "git commit -m \"feat(engine): add custom engine loader support\"",
+          "git add README.md",
+          "git commit -m \"docs(readme): update installation guide for Windows PowerShell\""
+        ]
+      },
+      {
+        "title": "Status e Diagnóstico Geral",
+        "command": "assistant status",
+        "output": [
+          "Status",
+          "  Engine atual: opencode",
+          "  Modelo atual: opencode/big-pickle",
+          "  Idioma atual: pt-br",
+          "  Canal de release atual: stable",
+          "  Assistant CLI {{version}}"
+        ]
+      },
+      {
+        "title": "Troca Rápida de Engine e Canal",
+        "command": "assistant engine opencode && assistant channel beta",
+        "output": [
+          "✔ Engine alterada para: opencode",
+          "ℹ Alternando para o canal de release: beta...",
+          "Atualizando o assistente...",
+          "[====================] 100%",
+          "ℹ  Assistant CLI {{version}}"
+        ]
+      }
+    ]
+  },
+  "security": {
+    "heading": "Totalmente de código aberto",
+    "description": "O instalador e o assistant são 100% de código aberto. Você pode inspecionar todo o código antes de executar, garantindo total transparência e controle sobre o processo de instalação.",
+    "noRootTitle": "Sem Modificações no Sistema Raiz",
+    "noRootDesc": "O script instala estritamente no diretório de usuário",
+    "githubBtn": "Acessar no GitHub",
+    "linuxCardTitle": "Linux e macOS",
+    "linuxCardDesc": "Para inspecionar o script Bash antes de executar:",
+    "winCardTitle": "Windows",
+    "winCardDesc": "Para inspecionar o script PowerShell antes de executar:",
+    "viewScript": "Ver script"
+  },
+  "faq": {
+    "heading": "Perguntas & Respostas",
+    "subheading": "Tudo o que você precisa saber sobre a instalação e operação do Assistant CLI.",
+    "items": [
+      {
+        "question": "O que o script de instalação faz exatamente no meu sistema?",
+        "answer": "O instalador interativo clona o repositório em ~/.config/assistant-cli (no Linux/macOS) ou %LOCALAPPDATA%\\assistant-cli (no Windows), detecta o shell utilizado (Bash, Zsh, Fish ou PowerShell) e adiciona o carregamento do script init.sh ao perfil do seu terminal (~/.bashrc, ~/.zshrc, config.fish ou $PROFILE). Tudo é feito em espaço de usuário, sem necessidade de privilégios de root/administrador."
+      },
+      {
+        "question": "Quais engines de IA são suportadas nativamente?",
+        "answer": "O Assistant CLI vem com suporte nativo ao Antigravity, GitHub Copilot, Ollama, OpenAI Codex e OpenCode. Além disso, você pode integrar qualquer outro provedor ou modelo criando um script .sh dentro de custom/engines/."
+      },
+      {
+        "question": "Como o Assistant CLI funciona no Windows via PowerShell?",
+        "answer": "No Windows, o instalador PowerShell cria uma função wrapper transparente no seu perfil ($PROFILE) que invoca o bash (via Git Bash) por baixo dos panos. Isso permite executar o comando \"assistant\" diretamente no PowerShell ou Windows Terminal com suporte total a argumentos, cores e interatividade, sem precisar abrir o Git Bash manualmente."
+      },
+      {
+        "question": "O que são as Skills integradas e como criar novas?",
+        "answer": "Skills são módulos especializados com prompts e rotinas focadas em tarefas específicas: \"assistant commit\" analisa o git diff e gera commits semânticos; \"assistant resume\" mapeia a árvore e arquivos de manifesto para resumir a arquitetura do projeto; \"assistant readme\" gera documentação completa no idioma escolhido. Você pode criar novas skills facilmente usando \"assistant create skill <nome> <arquivo.md>\"."
+      },
+      {
+        "question": "Como funcionam a persistência de configurações e a troca de modelos?",
+        "answer": "Todas as preferências (engine ativa, modelo selecionado para cada engine, idioma da interface e canal de release) são salvas em data/config.txt. Cada engine mantém sua própria memória de modelo configurado, permitindo alternar livremente entre provedores sem perder as configurações anteriores."
+      },
+      {
+        "question": "Como atualizar o assistente ou alternar entre canais estáveis e beta?",
+        "answer": "Para atualizar para a versão mais recente do canal atual, execute \"assistant update\". Para fixar ou testar uma versão específica, use \"assistant update @{{version}}\". Para alternar entre as versões em desenvolvimento e estáveis, utilize \"assistant channel beta\" ou \"assistant channel stable\"."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Um shell wrapper leve, modular e localizado.",
+    "license": "Licenciado sob MIT."
+  },
+  "languages": {
+    "pt-BR": "Português (BR)",
+    "es": "Español (ES)",
+    "en": "English (US)",
+    "selectLanguage": "Selecionar idioma"
+  },
+  "theme": {
+    "toggleTheme": "Alternar tema",
+    "lightMode": "Mudar para modo claro",
+    "darkMode": "Mudar para modo escuro"
+  }
+}
