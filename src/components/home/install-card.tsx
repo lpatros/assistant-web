@@ -6,8 +6,10 @@ import { CopyButton } from "@/components/ui/copy-button";
 import { FaLinux, FaApple, FaWindows, FaTerminal } from "react-icons/fa";
 import { LuChevronRight } from "react-icons/lu";
 import { useOsDetection } from "@/hooks/use-os-detection";
+import { useTranslation } from "react-i18next";
 
 export function InstallCard() {
+  const { t } = useTranslation();
   const detectedOs = useOsDetection();
   const [selectedTab, setSelectedTab] = useState<string>("linux");
   const [origin, setOrigin] = useState<string>(`https://${process.env.NEXT_PUBLIC_BASE_URL}`);
@@ -40,7 +42,7 @@ export function InstallCard() {
             <span className="h-3 w-3 rounded-full bg-emerald-500/80 inline-block ring-1 ring-emerald-400/20" />
             <span className="ml-2 font-mono text-xs text-zinc-400 select-none flex items-center gap-1.5">
               <FaTerminal size={13} className="text-zinc-500" />
-              terminal
+              {t("install.terminal", "terminal")}
             </span>
           </div>
         </div>
@@ -51,21 +53,21 @@ export function InstallCard() {
               <TabsList className="grid grid-cols-3 w-full sm:w-auto h-auto p-1 bg-zinc-900 border border-zinc-800">
                 <TabsTrigger
                   value="linux"
-                  className="py-2 text-xs sm:text-sm font-medium"
+                  className="py-2 text-xs sm:text-sm font-medium text-zinc-400 hover:text-zinc-200 data-active:bg-zinc-800 data-active:text-white data-active:shadow-sm"
                 >
                   <FaLinux size={16} />
                   <span>Linux</span>
                 </TabsTrigger>
                 <TabsTrigger
                   value="macos"
-                  className="py-2 text-xs sm:text-sm font-medium"
+                  className="py-2 text-xs sm:text-sm font-medium text-zinc-400 hover:text-zinc-200 data-active:bg-zinc-800 data-active:text-white data-active:shadow-sm"
                 >
                   <FaApple size={16} />
                   <span>macOS</span>
                 </TabsTrigger>
                 <TabsTrigger
                   value="windows"
-                  className="py-2 text-xs sm:text-sm font-medium"
+                  className="py-2 text-xs sm:text-sm font-medium text-zinc-400 hover:text-zinc-200 data-active:bg-zinc-800 data-active:text-white data-active:shadow-sm"
                 >
                   <FaWindows size={16} />
                   <span>Windows</span>
@@ -86,7 +88,7 @@ export function InstallCard() {
                     textToCopy={`curl -fsSL ${origin}/install.sh | bash`}
                     variant="outline"
                     size="sm"
-                    className="w-full sm:w-auto"
+                    className="w-full sm:w-auto border-zinc-700 bg-zinc-800/90 text-zinc-200 hover:bg-zinc-700 hover:text-white"
                   />
                 </div>
               </div>
@@ -105,7 +107,7 @@ export function InstallCard() {
                     textToCopy={`curl -fsSL ${origin}/install.sh | bash`}
                     variant="outline"
                     size="sm"
-                    className="w-full sm:w-auto"
+                    className="w-full sm:w-auto border-zinc-700 bg-zinc-800/90 text-zinc-200 hover:bg-zinc-700 hover:text-white"
                   />
                 </div>
               </div>
@@ -124,7 +126,7 @@ export function InstallCard() {
                     textToCopy={`irm ${origin}/install.ps1 | iex`}
                     variant="outline"
                     size="sm"
-                    className="w-full sm:w-auto"
+                    className="w-full sm:w-auto border-zinc-700 bg-zinc-800/90 text-zinc-200 hover:bg-zinc-700 hover:text-white"
                   />
                 </div>
               </div>
@@ -133,16 +135,18 @@ export function InstallCard() {
 
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-zinc-800/80 pt-4 text-xs text-zinc-400">
             <div className="flex items-center gap-2">
-              <span className="font-semibold text-zinc-300">Após instalar, teste com:</span>
+              <span className="font-semibold text-zinc-300">
+                {t("install.afterInstall")}
+              </span>
               <code className="rounded bg-zinc-900 px-2 py-0.5 font-mono text-zinc-200 border border-zinc-800">
-                assistant --version
+                assistant --version 
               </code>
             </div>
             <a
               href="#demo"
-              className="flex flex-row items-center justify-center gap-1 text-zinc-400 hover:text-white transition-colors underline underline-offset-4"
+              className="flex flex-row items-center justify-center gap-1 text-zinc-400 hover:text-zinc-100 transition-colors underline underline-offset-4"
             >
-              <span>Ver demonstração de comandos</span>
+              <span>{t("install.viewDemo")}</span>
               <LuChevronRight size={15} />
             </a>
           </div>

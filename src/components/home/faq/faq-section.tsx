@@ -1,54 +1,76 @@
 "use client";
 
 import { useState } from "react";
-import { FAQS, SITE_CONFIG } from "@/lib/constants";
+import { SITE_CONFIG } from "@/lib/constants";
 import { LuChevronDown } from "react-icons/lu";
 import { Styles } from "./faq.styles";
+import { useTranslation } from "react-i18next";
 
 export function FAQSection() {
+  const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const rawFaqs = t("faq.items", {
+    version: SITE_CONFIG.version,
+    returnObjects: true,
+  });
+
+  const faqs = (
+    Array.isArray(rawFaqs) ? rawFaqs : []
+  ) as Array<{ question: string; answer: string }>;
+
   return (
     <section id="faq" className={Styles().section()}>
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-            Perguntas & Respostas
+        <div className="mx-auto mb-12 max-w-2xl text-center">
+          <h2 className="text-foreground text-3xl font-bold tracking-tight sm:text-4xl">
+            {t("faq.heading")}
           </h2>
-          <p className="mt-3 text-zinc-400 text-sm sm:text-base">
-            Tudo o que você precisa saber sobre a instalação e operação do {SITE_CONFIG.name}.
+          <p className="text-muted-foreground mt-3 text-sm sm:text-base">
+            {t(
+              "faq.subheading",
+            )}
           </p>
         </div>
 
         <div className="space-y-4">
-          {FAQS.map((faq, index) => {
+          {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
+            const formattedAnswer = faq?.answer?.replace(
+              "{{version}}",
+              SITE_CONFIG.version || "1.0.0",
+            ) || "";
+
             return (
               <div
                 key={index}
-                className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 backdrop-blur-sm transition-colors hover:border-zinc-700/80"
+                className="border-border bg-card hover:border-primary/50 rounded-xl border backdrop-blur-sm transition-colors dark:border-zinc-800/80 dark:bg-zinc-900/40 dark:hover:border-zinc-700/80"
               >
                 <button
                   type="button"
                   onClick={() => toggleFAQ(index)}
-                  className="flex w-full items-center justify-between p-5 text-left font-medium text-zinc-200 cursor-pointer select-none focus:outline-none"
+                  className="text-foreground flex w-full cursor-pointer items-center justify-between p-5 text-left font-medium select-none focus:outline-none"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base font-semibold text-zinc-100">{faq.question}</span>
+                  <span className="text-foreground text-base font-semibold">
+                    {faq.question}
+                  </span>
                   <LuChevronDown
                     size={18}
-                    className={`shrink-0 text-zinc-400 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 text-cyan-400" : ""
+                    className={`text-muted-foreground shrink-0 transition-transform duration-200 ${
+                      isOpen
+                        ? "rotate-180 text-cyan-500 dark:text-cyan-400"
+                        : ""
                     }`}
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-0 text-sm text-zinc-400 leading-relaxed border-t border-zinc-800/40 mt-1">
-                    <p className="pt-3">{faq.answer}</p>
+                  <div className="text-muted-foreground border-border/40 mt-1 border-t px-5 pt-0 pb-5 text-sm leading-relaxed dark:border-zinc-800/40">
+                    <p className="pt-3">{formattedAnswer}</p>
                   </div>
                 )}
               </div>

@@ -2,11 +2,13 @@
 
 import * as React from "react";
 import { useTheme } from "next-themes";
-import { LuSun, LuMoon } from "react-icons/lu";
+import { LuSun, LuMoon, LuRotateCcw  } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 export function ThemeToggle() {
   const { setTheme, resolvedTheme } = useTheme();
+  const { t } = useTranslation();
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -18,24 +20,27 @@ export function ThemeToggle() {
       <Button
         variant="outline"
         size="icon"
-        aria-label="Alternar tema"
+        aria-label={t("theme.toggleTheme")}
         disabled
         className="opacity-50"
       >
-        <span className="size-4" />
+        <LuRotateCcw size={16} />
       </Button>
     );
   }
 
   const isDark = resolvedTheme === "dark";
+  const label = isDark
+    ? t("theme.lightMode")
+    : t("theme.darkMode");
 
   return (
     <Button
       variant="outline"
       size="icon"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label={isDark ? "Mudar para modo claro" : "Mudar para modo escuro"}
-      title={isDark ? "Mudar para modo claro" : "Mudar para modo escuro"}
+      aria-label={label}
+      title={label}
     >
       {isDark ? <LuSun size={16} /> : <LuMoon size={16} />}
     </Button>

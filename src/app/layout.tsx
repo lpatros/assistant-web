@@ -4,8 +4,10 @@ import "./globals.css";
 import { SITE_CONFIG } from "@/lib/constants";
 import { tv } from "tailwind-variants";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/theme-provider";
+import { I18nProvider } from "@/components/i18n-provider";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,14 +25,14 @@ export const metadata: Metadata = {
   keywords: SITE_CONFIG.keywords,
   authors: SITE_CONFIG.authors,
   icons: {
-    icon: "./terminal.svg"
-  }
+    icon: "./terminal.svg",
+  },
 };
 
 const Styles = tv({
   slots: {
-    html: `${geistSans.variable} ${geistMono.variable} dark h-full antialiased`,
-    body: "flex min-h-full flex-col bg-zinc-950 font-sans text-zinc-100 selection:bg-indigo-500/30 selection:text-white",
+    html: `${geistSans.variable} ${geistMono.variable} h-full antialiased`,
+    body: "flex min-h-full flex-col font-sans selection:bg-indigo-500/30 selection:text-white",
   },
 });
 
@@ -40,8 +42,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" className={cn(Styles().html(), "font-sans", inter.variable)}>
-      <body className={Styles().body()}>{children}</body>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn(Styles().html(), "font-sans", inter.variable)}
+    >
+      <body className={Styles().body()}>
+        <I18nProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </I18nProvider>
+      </body>
     </html>
   );
 }
+

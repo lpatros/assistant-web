@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useClipboard } from "@/hooks/use-clipboard";
 import { cn } from "@/lib/utils";
 import { LuCheck, LuCopy } from "react-icons/lu";
+import { useTranslation } from "react-i18next";
 
 export interface CopyButtonProps {
   textToCopy: string;
@@ -11,7 +12,7 @@ export interface CopyButtonProps {
   copiedLabel?: string;
   className?: string;
   variant?: "default" | "secondary" | "ghost" | "outline";
-  size?: "default" | "sm" | "lg";
+  size?: "default" | "sm" | "lg" | "icon" | "xs";
 }
 
 export function CopyButton({
@@ -23,7 +24,11 @@ export function CopyButton({
   size = "sm",
   ...props
 }: CopyButtonProps) {
+  const { t } = useTranslation();
   const { copied, copy } = useClipboard(2000);
+
+  const resolvedCopiedLabel =
+    copiedLabel || (label ? t("install.copied") : undefined);
 
   return (
     <Button
@@ -32,9 +37,9 @@ export function CopyButton({
       size={size}
       onClick={() => copy(textToCopy)}
       className={cn(
-        "transition-all duration-200 cursor-pointer font-mono select-none",
+        "transition-all duration-200 cursor-pointer font-mono select-none gap-1.5",
         copied
-          ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500/30"
+          ? "!bg-emerald-500/20 !text-emerald-400 !border-emerald-500/40 hover:!bg-emerald-500/30"
           : "",
         className
       )}
@@ -43,12 +48,12 @@ export function CopyButton({
       {copied ? (
         <>
           <LuCheck className="text-emerald-400 animate-in zoom-in-50 duration-150" size={15} />
-          <span>{copiedLabel}</span>
+          {resolvedCopiedLabel ? <span>{resolvedCopiedLabel}</span> : null}
         </>
       ) : (
         <>
           <LuCopy size={15} />
-          <span>{label}</span>
+          {label && <span>{label}</span>}
         </>
       )}
     </Button>
