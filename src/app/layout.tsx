@@ -6,6 +6,7 @@ import { tv } from "tailwind-variants";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { I18nProvider } from "@/components/i18n-provider";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -48,6 +49,7 @@ export default function RootLayout({
       className={cn(Styles().html(), "font-sans", inter.variable)}
     >
       <body className={Styles().body()}>
+        <Analytics />
         <I18nProvider>
           <ThemeProvider
             attribute="class"
@@ -62,4 +64,3 @@ export default function RootLayout({
     </html>
   );
 }
-
