@@ -9,7 +9,7 @@ import { tv } from "tailwind-variants";
 
 const Styles = tv({
   slots: {
-    div: "flex min-h-screen flex-col bg-zinc-950 text-zinc-100 selection:bg-indigo-500/30 selection:text-white",
+    div: "flex min-h-screen flex-col bg-background text-foreground selection:bg-indigo-500/30 selection:text-foreground",
     main: "flex-1"
   },
 });
