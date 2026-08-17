@@ -21,8 +21,7 @@ export function TerminalDemo() {
     output: string[];
   }>;
 
-  const activeExample =
-    examples[activeExampleIndex] || examples[0];
+  const activeExample = examples[activeExampleIndex] || examples[0];
 
   return (
     <section
@@ -35,9 +34,7 @@ export function TerminalDemo() {
             {t("demo.heading")}
           </h2>
           <p className="text-muted-foreground mt-3 text-sm sm:text-base">
-            {t(
-              "demo.subheading",
-            )}
+            {t("demo.subheading")}
           </p>
         </div>
 
@@ -54,14 +51,16 @@ export function TerminalDemo() {
                   onClick={() => setActiveExampleIndex(idx)}
                   className={`flex cursor-pointer items-center justify-between rounded-xl border p-3.5 text-left transition-all ${
                     isSelected
-                      ? "bg-card text-foreground border-indigo-500/50 shadow-[0_0_15px_rgba(99,102,241,0.12)] dark:bg-zinc-900 dark:text-white"
+                      ? "bg-card text-foreground border-zinc-900/50 shadow-[0_0_15px_rgba(99,102,241,0.12)] dark:border-white/50 dark:bg-zinc-900 dark:text-white"
                       : "bg-card/40 border-border text-muted-foreground hover:bg-card hover:text-foreground dark:border-zinc-800 dark:bg-zinc-900/30 dark:text-zinc-400 dark:hover:bg-zinc-900/60 dark:hover:text-zinc-200"
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <div
                       className={`h-2 w-2 rounded-full ${
-                        isSelected ? "bg-indigo-500" : "bg-muted-foreground/40"
+                        isSelected
+                          ? "bg-zinc-900 dark:bg-white"
+                          : "bg-muted-foreground/40"
                       }`}
                     />
                     <span className="text-sm font-medium">{example.title}</span>
@@ -70,7 +69,7 @@ export function TerminalDemo() {
                     size={16}
                     className={`transition-transform ${
                       isSelected
-                        ? "translate-x-0.5 text-indigo-500"
+                        ? "translate-x-0.5 text-zinc-900 dark:text-white"
                         : "text-muted-foreground"
                     }`}
                   />
