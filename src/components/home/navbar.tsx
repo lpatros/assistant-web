@@ -36,12 +36,9 @@ export function Navbar() {
     <header className="border-border bg-background sticky top-0 z-50 w-full border-b">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-linear-to-tr from-indigo-600 via-cyan-500 to-emerald-400 p-px">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-900 p-px dark:bg-white">
             <div className="bg-background flex h-full w-full items-center justify-center rounded-[7px]">
-              <LuTerminal
-                className="text-cyan-500 dark:text-cyan-400"
-                size={18}
-              />
+              <LuTerminal className="text-zinc-900 dark:text-white" size={18} />
             </div>
           </div>
           <div className="flex items-center gap-2">
