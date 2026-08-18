@@ -12,37 +12,51 @@ export function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="border-t border-border/80 bg-background py-12 text-sm">
+    <footer className="border-border/80 bg-background border-t py-12 text-sm">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-linear-to-tr from-indigo-600 via-cyan-500 to-emerald-400 p-px">
-              <div className="flex h-full w-full items-center justify-center rounded-[7px] bg-background">
-                <LuTerminal className="text-cyan-500 dark:text-cyan-400" size={18} />
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-900 p-px dark:bg-white">
+              <div className="bg-background flex h-full w-full items-center justify-center rounded-[7px]">
+                <LuTerminal
+                  className="text-zinc-900 dark:text-white"
+                  size={18}
+                />
               </div>
             </div>
             <div>
-              <p className="font-semibold text-foreground">{SITE_CONFIG.name}</p>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-foreground font-semibold">
+                {SITE_CONFIG.name}
+              </p>
+              <p className="text-muted-foreground text-xs">
                 {t("footer.tagline", SITE_CONFIG.tagline)}
               </p>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-muted-foreground">
-            <a href="#install" className="transition-colors hover:text-foreground">
+          <div className="text-muted-foreground flex flex-wrap items-center justify-center gap-6 text-xs">
+            <a
+              href="#install"
+              className="hover:text-foreground transition-colors"
+            >
               {t("nav.install")}
             </a>
-            <a href="#features" className="transition-colors hover:text-foreground">
+            <a
+              href="#features"
+              className="hover:text-foreground transition-colors"
+            >
               {t("nav.features")}
             </a>
-            <a href="#demo" className="transition-colors hover:text-foreground">
+            <a href="#demo" className="hover:text-foreground transition-colors">
               {t("nav.demo")}
             </a>
-            <a href="#security" className="transition-colors hover:text-foreground">
+            <a
+              href="#security"
+              className="hover:text-foreground transition-colors"
+            >
               {t("nav.security")}
             </a>
-            <a href="#faq" className="transition-colors hover:text-foreground">
+            <a href="#faq" className="hover:text-foreground transition-colors">
               {t("nav.faq")}
             </a>
           </div>
@@ -63,9 +77,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-border/60 pt-6 text-center text-xs text-muted-foreground">
+        <div className="border-border/60 text-muted-foreground mt-8 border-t pt-6 text-center text-xs">
           <p>
-            &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. {t("footer.license")}
+            &copy; {new Date().getFullYear()} {SITE_CONFIG.name}.{" "}
+            {t("footer.license")}
           </p>
         </div>
       </div>

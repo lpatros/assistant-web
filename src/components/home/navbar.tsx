@@ -22,7 +22,6 @@ export function Navbar() {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = React.useState(false);
 
-  // Close mobile menu automatically when screen is resized to desktop (>= lg)
   React.useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -34,16 +33,16 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/80 bg-background/80 backdrop-blur-xl supports-backdrop-filter:bg-background/60">
+    <header className="border-border bg-background sticky top-0 z-50 w-full border-b">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-linear-to-tr from-indigo-600 via-cyan-500 to-emerald-400 p-px">
-            <div className="flex h-full w-full items-center justify-center rounded-[7px] bg-background">
-              <LuTerminal className="text-cyan-500 dark:text-cyan-400" size={18} />
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-900 p-px dark:bg-white">
+            <div className="bg-background flex h-full w-full items-center justify-center rounded-[7px]">
+              <LuTerminal className="text-zinc-900 dark:text-white" size={18} />
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-lg font-bold tracking-tight text-foreground">
+            <span className="text-foreground text-lg font-bold tracking-tight">
               {SITE_CONFIG.name}
             </span>
             <Badge variant="secondary" className="text-[10px]">
@@ -52,20 +51,18 @@ export function Navbar() {
           </div>
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-6 text-sm font-medium text-muted-foreground lg:flex">
+        <nav className="text-muted-foreground hidden items-center gap-6 text-sm font-medium lg:flex">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="flex items-center gap-1.5 transition-colors hover:text-foreground"
+              className="hover:text-foreground flex items-center gap-1.5 transition-colors"
             >
               {t(item.labelKey)}
             </a>
           ))}
         </nav>
 
-        {/* Desktop Action Buttons */}
         <div className="hidden items-center gap-2.5 lg:flex">
           <LanguageSelector side="bottom" />
           <ThemeToggle />
@@ -81,7 +78,6 @@ export function Navbar() {
           </Button>
         </div>
 
-        {/* Mobile Buttons (GitHub + Hamburger) */}
         <div className="flex items-center gap-2 lg:hidden">
           <Button variant="outline" size="icon">
             <a
@@ -105,23 +101,22 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Dropdown Panel */}
       {isOpen && (
-        <div className="border-t border-border/80 bg-background/95 backdrop-blur-xl px-4 py-4 shadow-xl lg:hidden animate-in fade-in-0 slide-in-from-top-2 duration-200">
+        <div className="border-border/80 bg-background/95 animate-in fade-in-0 slide-in-from-top-2 border-t px-4 py-4 shadow-xl backdrop-blur-xl duration-200 lg:hidden">
           <nav className="flex flex-col gap-1">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="flex items-center rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                className="text-muted-foreground hover:bg-accent hover:text-foreground flex items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-colors"
               >
                 {t(item.labelKey)}
               </a>
             ))}
           </nav>
 
-          <div className="mt-4 flex items-center justify-between border-t border-border/60 pt-4 px-1">
+          <div className="border-border/60 mt-4 flex items-center justify-between border-t px-1 pt-4">
             <div className="flex items-center gap-2.5">
               <LanguageSelector side="bottom" />
               <ThemeToggle />
