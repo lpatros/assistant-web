@@ -4,13 +4,13 @@ import { FeaturesGrid } from "@/components/home/features-grid";
 import { TerminalDemo } from "@/components/home/terminal-demo";
 import { SecuritySection } from "@/components/home/security-section";
 import { FAQSection } from "@/components/home/faq/faq-section";
-import { Footer } from "@/components/home/footer";
+import { Footer } from "@/components/footer";
 import { tv } from "tailwind-variants";
 
 const Styles = tv({
   slots: {
-    div: "flex min-h-screen flex-col bg-background text-foreground selection:bg-indigo-500/30 selection:text-foreground",
-    main: "flex-1"
+    div: "bg-background text-foreground selection:text-foreground flex min-h-screen flex-col selection:bg-indigo-500/30",
+    main: "flex-1",
   },
 });
 

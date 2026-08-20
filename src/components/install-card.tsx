@@ -7,8 +7,9 @@ import { FaLinux, FaApple, FaWindows, FaTerminal } from "react-icons/fa";
 import { LuChevronRight } from "react-icons/lu";
 import { useOsDetection } from "@/hooks/use-os-detection";
 import { useTranslation } from "react-i18next";
+import { cn } from "@/lib/utils";
 
-export function InstallCard() {
+export function InstallCard({ showShadow = true, showDemo = true }: { showShadow?: boolean, showDemo?: boolean }) {
   const { t } = useTranslation();
   const detectedOs = useOsDetection();
   const [selectedTab, setSelectedTab] = useState<string>("linux");
@@ -32,7 +33,7 @@ export function InstallCard() {
 
   return (
     <div className="relative mx-auto w-full max-w-3xl">
-      <div className="absolute -inset-1 rounded-2xl bg-linear-to-r from-cyan-500/20 via-indigo-500/25 to-purple-600/20 opacity-75 blur-xl transition-all duration-500" />
+      <div className={cn("absolute -inset-1 rounded-2xl opacity-75 blur-xl transition-all duration-500", showShadow ? "bg-linear-to-r from-cyan-500/20 via-indigo-500/25 to-purple-600/20" : "")} />
 
       <div className="relative overflow-hidden rounded-2xl border border-zinc-700/60 bg-zinc-950/90 shadow-2xl backdrop-blur-xl">
         <div className="flex items-center justify-between border-b border-zinc-800/90 bg-zinc-900/70 px-4 py-3 sm:px-6">
@@ -142,13 +143,15 @@ export function InstallCard() {
                 assistant --version 
               </code>
             </div>
-            <a
+            {showDemo && (
+              <a
               href="#demo"
               className="flex flex-row items-center justify-center gap-1 text-zinc-400 hover:text-zinc-100 transition-colors underline underline-offset-4"
             >
               <span>{t("install.viewDemo")}</span>
               <LuChevronRight size={15} />
             </a>
+            )}
           </div>
         </div>
       </div>
