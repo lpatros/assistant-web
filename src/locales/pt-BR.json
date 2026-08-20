@@ -5,6 +5,8 @@
     "demo": "Preview",
     "security": "Segurança",
     "faq": "FAQ",
+    "docs": "Docs",
+    "gettingStarted": "Primeiros Passos",
     "githubAria": "Repositório GitHub",
     "toggleMenu": "Alternar menu"
   },
@@ -169,5 +171,337 @@
     "toggleTheme": "Alternar tema",
     "lightMode": "Mudar para modo claro",
     "darkMode": "Mudar para modo escuro"
+  },
+  "docs": {
+    "navGroups": {
+      "gettingStarted": {
+        "title": "Começando",
+        "items": {
+          "intro": "Visão Geral",
+          "installation": "Instalação & Setup",
+          "quickStart": "Início Rápido"
+        }
+      },
+      "coreConcepts": {
+        "title": "Conceitos Centrais",
+        "items": {
+          "interactionModes": "Modos de Interação",
+          "engines": "Arquitetura de Engines",
+          "models": "Modelos & Persistência",
+          "thinkMode": "Think Mode (Ollama)"
+        }
+      },
+      "builtInSkills": {
+        "title": "Habilidades Integradas",
+        "items": {
+          "skillCommit": "Commit Assistant",
+          "skillResume": "Resume Generator",
+          "skillReadme": "README Generator"
+        }
+      },
+      "customization": {
+        "title": "Customização",
+        "items": {
+          "customOverview": "Estrutura Extensível",
+          "customSkills": "Custom Skills",
+          "customEngines": "Custom Engines",
+          "customLocales": "Custom Locales",
+          "customInit": "Comandos Dinâmicos",
+          "customStatus": "Inspecionar Status"
+        }
+      },
+      "support": {
+        "title": "Suporte",
+        "items": {
+          "troubleshootingFaq": "Troubleshooting & FAQ"
+        }
+      }
+    },
+    "search": {
+      "button": "Buscar",
+      "placeholder": "Buscar documentação, comandos, skills, engines...",
+      "noResults": "Nenhum resultado encontrado para \"{{query}}\".",
+      "navigate": "Navegar",
+      "select": "Selecionar",
+      "close": "Fechar",
+      "items": [
+        {
+          "id": "install-linux",
+          "title": "Instalação no Linux & macOS",
+          "category": "Getting Started",
+          "snippet": "Instalação via Bash/cURL com autodetecção de Zsh, Bash e Fish.",
+          "anchor": "#installation",
+          "keywords": ["curl", "bash", "zsh", "fish", "install", "linux", "macos"]
+        },
+        {
+          "id": "install-windows",
+          "title": "Instalação no Windows (PowerShell)",
+          "category": "Getting Started",
+          "snippet": "Instalação com wrapper nativo em PowerShell e Git Bash.",
+          "anchor": "#installation",
+          "keywords": ["powershell", "windows", "profile", "executionpolicy", "irm", "iex"]
+        },
+        {
+          "id": "interaction-modes",
+          "title": "Modos de Interação: Chat REPL & Pergunta Direta",
+          "category": "Core Concepts",
+          "snippet": "Diferença entre modo interativo (assistant) e perguntas diretas (assistant \"...\").",
+          "anchor": "#interaction-modes",
+          "keywords": ["repl", "chat", "interativo", "aspas", "one-shot", "prompt"]
+        },
+        {
+          "id": "engines-matrix",
+          "title": "Suporte Multi-Engine & Drivers Modulares",
+          "category": "Engines",
+          "snippet": "Drivers para Antigravity (agy), Codex, Copilot, Ollama, OpenCode e Custom.",
+          "anchor": "#engines",
+          "keywords": ["engines", "antigravity", "codex", "copilot", "ollama", "opencode", "drivers"]
+        },
+        {
+          "id": "model-persistence",
+          "title": "Persistência Independente de Modelos",
+          "category": "Engines",
+          "snippet": "Como cada engine salva seu modelo favorito no data/config.txt.",
+          "anchor": "#models",
+          "keywords": ["modelos", "config.txt", "persistencia", "ASSISTANT_MODEL", "set"]
+        },
+        {
+          "id": "think-mode",
+          "title": "Controle de Raciocínio (Think Mode — Ollama)",
+          "category": "Core Concepts",
+          "snippet": "Gerenciamento de flags de pensamento (--think, --no-think, --hide-think).",
+          "anchor": "#think-mode",
+          "keywords": ["think", "raciocinio", "deepseek", "qwq", "pensamento", "ollama"]
+        },
+        {
+          "id": "skill-commit",
+          "title": "Skill: Assistente de Commit Semântico",
+          "category": "Skills",
+          "snippet": "Análise inteligente de git diff staged e sugestão de Conventional Commits.",
+          "anchor": "#skill-commit",
+          "keywords": ["commit", "git", "conventional commits", "staging", "diff", "seguranca"]
+        },
+        {
+          "id": "skill-resume",
+          "title": "Skill: Gerador de Resumos de Projetos",
+          "category": "Skills",
+          "snippet": "Escaneamento de manifestos (package.json, Cargo.toml) para portfólio em Markdown.",
+          "anchor": "#skill-resume",
+          "keywords": ["resume", "resumo", "portfolio", "curriculo", "manifestos", "paralelo"]
+        },
+        {
+          "id": "skill-readme",
+          "title": "Skill: Gerador de README Profissional",
+          "category": "Skills",
+          "snippet": "Geração de README.md com badges shields.io, setup e internacionalização.",
+          "anchor": "#skill-readme",
+          "keywords": ["readme", "documentacao", "shields", "badges", "gerador"]
+        },
+        {
+          "id": "custom-skills",
+          "title": "Criando Custom Skills (*-assistant.md)",
+          "category": "Customization",
+          "snippet": "Como registrar novas habilidades e personas em custom/skills/.",
+          "anchor": "#custom-skills",
+          "keywords": ["custom", "skills", "create skill", "prompt", "persona"]
+        },
+        {
+          "id": "custom-engines",
+          "title": "Criando Custom Engines (.sh)",
+          "category": "Customization",
+          "snippet": "Contrato de funções Shell para criar drivers de novas IAs em custom/engines/.",
+          "anchor": "#custom-engines",
+          "keywords": ["custom engines", "drivers", "bash", "integrar", "api"]
+        },
+        {
+          "id": "custom-locales",
+          "title": "Criando Custom Locales (Novo Idioma)",
+          "category": "Customization",
+          "snippet": "Adicionando novos idiomas em custom/locales/ sobrescrevendo funções t_*.",
+          "anchor": "#custom-locales",
+          "keywords": ["i18n", "idioma", "traducao", "locales", "lingua"]
+        },
+        {
+          "id": "custom-init",
+          "title": "Comandos Shell Dinâmicos (custom/init.sh)",
+          "category": "Customization",
+          "snippet": "Criando funções com prefixo _cmd_<nome> para execução direta no CLI.",
+          "anchor": "#custom-init",
+          "keywords": ["init.sh", "cmd", "funcoes", "atalhos", "alias"]
+        },
+        {
+          "id": "troubleshooting-faq",
+          "title": "Troubleshooting & FAQ",
+          "category": "FAQ",
+          "snippet": "Resolução de problemas no PowerShell, Git Bash, aspas e Ollama.",
+          "anchor": "#troubleshooting-faq",
+          "keywords": ["erro", "problema", "powershell", "faq", "ajuda"]
+        }
+      ]
+    },
+    "overview": {
+      "badge": "01. Visão Geral",
+      "heading": "O que é o Assistant CLI?",
+      "description": "O Assistant CLI é um wrapper de terminal modular, ultraleve e localizado escrito em Bash, projetado para orquestrar Modelos de Linguagem de Grande Porte (LLMs) locais ou em nuvem diretamente da linha de comando.",
+      "cards": {
+        "multiEngine": {
+          "title": "Multi-Engine Nativo",
+          "description": "Alterne entre Antigravity, Codex, GitHub Copilot, Ollama, OpenCode e drivers customizados."
+        },
+        "persistence": {
+          "title": "Persistência",
+          "description": "Cada engine mantém salvo seu próprio modelo favorito. Trocar de engine nunca apaga suas escolhas anteriores."
+        },
+        "skills": {
+          "title": "Built-in Skills",
+          "description": "Gere commits semânticos estruturados, resumos de projetos e READMEs completos."
+        },
+        "extensible": {
+          "title": "Totalmente Extensível",
+          "description": "Adicione novos prompts em Markdown, drivers shell de IA, idiomas customizados e comandos na pasta custom/."
+        }
+      }
+    },
+    "installation": {
+      "badge": "02. Instalação & Setup",
+      "heading": "Guia de Instalação",
+      "description": "O Assistant CLI possui instaladores otimizados para Linux, macOS e Windows (com suporte ao PowerShell via wrapper)."
+    },
+    "quickStart": {
+      "badge": "03. Início Rápido",
+      "heading": "Primeiros Passos com o Assistant CLI",
+      "description": "Após a instalação, abra uma nova janela de terminal ou recarregue seu perfil. Teste se o comando está funcionando:",
+      "code": "# 1. Verifique a versão instalada\nassistant --version\n\n# 2. Inspecione o status geral\nassistant status"
+    },
+    "interactionModes": {
+      "badge": "04. Modos de Uso",
+      "heading": "Modos de Interação: REPL vs One-Shot",
+      "description": "O Assistant CLI adapta-se perfeitamente a fluxos de trabalho rápidos ou sessões iterativas profundas.",
+      "repl": {
+        "title": "Modo Interativo (Chat REPL)",
+        "description": "Inicia uma sessão de chat contínuo com a engine e modelo configurados."
+      },
+      "oneshot": {
+        "title": "Modo Pergunta Direta (One-shot)",
+        "description": "Envia a pergunta diretamente e imprime a resposta formatada no terminal.",
+        "exampleCode": "assistant \"Como criar um middleware no Next.js?\""
+      }
+    },
+    "engines": {
+      "badge": "05. Gerenciamento de Engines",
+      "heading": "Arquitetura de Drivers & Multi-Engine",
+      "description": "O Assistant CLI trata provedores de IA como drivers modulares desacoplados. Você pode alternar entre modelos em nuvem de alta capacidade ou modelos locais 100% offline com um único comando.",
+      "commandsHeading": "Comandos de Gerenciamento de Engine:",
+      "code": "# Exibe a engine ativa e modelo correspondente\nassistant engine\n\n# Abre menu interativo listando engines instaladas e não instaladas\nassistant engine --list\n\n# Troca a engine ativa imediatamente\nassistant engine ollama\nassistant engine agy\nassistant engine opencode\n\n# Exibe o status da engine ativa\nassistant engine status"
+    },
+    "models": {
+      "badge": "06. Modelos & Persistência",
+      "heading": "Gerenciamento de Modelos por Engine",
+      "description": "Cada engine possui sua própria seleção de modelo salva independentemente. Quando você altera a engine de ollama para agy e depois retorna para ollama, sua preferência de modelo é restaurada perfeitamente.",
+      "code": "# Menu interativo para escolher o modelo da engine atual\nassistant model --list\n\n# Define um modelo específico para a engine ativa\nassistant model set qwen2.5-coder:7b\nassistant model set gemini-3.6-flash-medium\n\n# Exibe o modelo configurado no momento\nassistant model status",
+      "configTitle": "Persistência no Arquivo data/config.txt",
+      "configDesc": "Todas as preferências são salvas em formato chave-valor simples dentro de data/config.txt:"
+    },
+    "thinkMode": {
+      "badge": "07. Controle de Raciocínio (Think Mode)",
+      "heading": "Think Mode para Modelos de Raciocínio (Ollama)",
+      "description": "Modelos de raciocínio profundo (como DeepSeek R1, Qwen QwQ) costumam gerar blocos extensos de cadeia de pensamento (<think>...</think>). O Assistant CLI oferece controle granular sobre essa exibição.",
+      "persistentTitle": "Configuração Persistente",
+      "persistentCode": "# Ativa o modo de pensamento (--think)\nassistant think on\n\n# Desativa o modo de pensamento (--think=false)\nassistant think off\n\n# Oculta o pensamento da tela (--hidethinking)\nassistant think hide\n\n# Remove flags forçadas (padrão do modelo)\nassistant think clear\n\n# Exibe o status configurado\nassistant think status",
+      "runtimeTitle": "Flags Rápidas por Execução",
+      "runtimeCode": "# Força o raciocínio profundo\nassistant --think \"Resolva esse algoritmo de grafos\"\n\n# Desativa o raciocínio para respostas rápidas\nassistant --no-think \"Gere um JSON com 3 objetos de teste\"\n\n# Oculta o bloco de raciocínio\nassistant --hide-think \"Explique a diferença entre mutex e semáforo\""
+    },
+    "skills": {
+      "badge": "08. Habilidades Integradas (Built-in Skills)",
+      "heading": "Skills Padrão do Assistant CLI",
+      "commit": {
+        "title": "Assistente de Commit Semântico (assistant commit)",
+        "badge": "Git Automation",
+        "description": "Analisa o staging do Git (git status, git diff --cached e git diff --stat) e sugere commits atômicos e padronizados seguindo a especificação Conventional Commits (feat, fix, chore, docs, refactor, test).",
+        "calloutTitle": "Garantia de Segurança",
+        "calloutText": "O assistente não executa comandos git automaticamente. Ele imprime exatamente os comandos git add e git commit -m \"...\" para que você revise, aprove e execute no seu terminal.",
+        "codeFilename": "Exemplo de Uso",
+        "code": "# Prepare os arquivos desejados no staging\ngit add src/components/Button.tsx\n\n# Peça ao assistente para gerar a sugestão\nassistant commit"
+      },
+      "resume": {
+        "title": "Gerador de Resumos Técnicos de Projetos (assistant resume)",
+        "badge": "Portfolio & CV",
+        "description": "Escaneia árvores de diretórios e arquivos de manifesto (package.json, Cargo.toml, pom.xml, go.mod, requirements.txt, etc.) e gera documentos estruturados em Markdown dentro do diretório ./projects-resumes/.",
+        "code": "# Analisa o diretório atual\nassistant resume\n\n# Analisa um projeto específico\nassistant resume ../meu-projeto-react\n\n# Analisa múltiplos projetos em paralelo com sub-processos\nassistant resume ./app ./api ./web"
+      },
+      "readme": {
+        "title": "Gerador de README Profissional (assistant readme)",
+        "badge": "Documentation",
+        "description": "Analisa toda a arquitetura do projeto e cria um arquivo README.md completo com badges shields.io, sumário, guias de setup, tabelas de dependências e exemplos no idioma desejado.",
+        "code": "# Gera README em português brasileiro\nassistant readme --lang pt-br --name README-PTBR\n\n# Gera README em inglês padrão\nassistant readme --lang en --name README"
+      }
+    },
+    "customization": {
+      "badge": "09. Sistema de Extensões & Customização",
+      "heading": "Extensibilidade Completa na Pasta custom/",
+      "description": "O Assistant CLI possui uma arquitetura plug-and-play que permite criar drivers de novas ferramentas, novas skills com personas customizadas, novos idiomas de interface e comandos de terminal sem mexer no código-fonte principal.",
+      "treeFilename": "Estrutura de Diretórios",
+      "treeCode": "custom/\n├── engines/             # Drivers Shell (.sh) para novas ferramentas ou APIs de IA\n├── locales/             # Arquivos de tradução (.sh) adicionando novos idiomas\n├── skills/              # Arquivos Markdown (*-assistant.md) com personas e prompts\n└── init.sh              # Funções Bash para comandos dinâmicos (_cmd_<nome>)",
+      "skills": {
+        "title": "A. Criando uma Custom Skill",
+        "description": "Crie um arquivo Markdown seguindo a convenção custom/skills/<nome>-assistant.md ou registre via CLI:",
+        "code": "# Registrando via comando do assistente\nassistant create skill revisor /caminho/para/meu-prompt.md\n\n# Executando a nova skill criada\nassistant revisor \"Revise este trecho de código em Rust\""
+      },
+      "engines": {
+        "title": "B. Criando uma Custom Engine (Driver Shell)",
+        "description": "Crie um arquivo em custom/engines/<nome>.sh implementando o contrato de funções:"
+      },
+      "locales": {
+        "title": "C. Criando um Custom Locale (Novo Idioma)",
+        "description": "Crie custom/locales/<lang>.sh (ex: custom/locales/fr.sh) sobrescrevendo as funções t_*:",
+        "code": "# Ativando o novo idioma no assistente\nassistant lang fr"
+      },
+      "init": {
+        "title": "D. Comandos Shell Dinâmicos (custom/init.sh)",
+        "description": "Adicione funções com o prefixo _cmd_<nome> no arquivo custom/init.sh:",
+        "code": "# Executando o comando diretamente via assistant CLI\nassistant docker_clean"
+      },
+      "status": {
+        "title": "E. Inspecionando Customizações Carregadas",
+        "code": "assistant custom status            # Visão geral de todas as customizações\nassistant custom engines status    # Lista engines customizadas\nassistant custom skills status     # Lista skills customizadas\nassistant custom locales status    # Lista locales customizados"
+      }
+    },
+    "troubleshooting": {
+      "badge": "10. Suporte & Diagnóstico",
+      "heading": "Troubleshooting & Perguntas Frequentes",
+      "description": "Respostas e soluções para os cenários e dúvidas mais comuns no dia a dia.",
+      "faqTitle": "Troubleshooting & Perguntas Frequentes (FAQ)",
+      "faqs": {
+        "psExec": {
+          "question": "Erro no PowerShell: 'running scripts is disabled on this system'",
+          "p1": "O Windows bloqueia a execução de scripts no PowerShell por padrão. Para liberar para o seu usuário atual, execute:",
+          "p2": "Após isso, reabra o PowerShell ou tente rodar o instalador novamente."
+        },
+        "gitBashPath": {
+          "question": "No Windows, recebo erro informando que o comando 'bash' não foi encontrado",
+          "p1": "O wrapper nativo do Assistant CLI no PowerShell necessita do executável do Git Bash no PATH do sistema.",
+          "p2": "Geralmente ele fica localizado em C:\\Program Files\\Git\\bin ou C:\\Program Files\\Git\\usr\\bin. Adicione este diretório às Variáveis de Ambiente do seu Windows nas opções do sistema."
+        },
+        "quotesRule": {
+          "question": "Por que perguntas diretas com espaços precisam de aspas duplas?",
+          "p1": "Como o shell interpreta espaços como delimitadores de argumentos separados, passar assistant Como funciona X fará o assistente interpretar \"Como\" como um subcomando.",
+          "p2": "Para enviar prompts diretos de uma linha, sempre envolva a mensagem em aspas duplas:"
+        },
+        "ollamaThink": {
+          "question": "Como desativar o raciocínio longo (thinking) em modelos Ollama como DeepSeek R1?",
+          "p1": "Você pode desativar persistentemente com o comando:",
+          "p2": "Ou aplicar apenas para a requisição atual usando a flag --no-think:"
+        },
+        "updateRollback": {
+          "question": "Como voltar para uma versão anterior do Assistant CLI caso algo dê errado?",
+          "p1": "O Assistant CLI suporta pinagem instantânea de versão. Para ver as versões disponíveis e fazer rollback:"
+        }
+      }
+    },
+    "cta": {
+      "title": "Pronto para começar?",
+      "description": "Instale o Assistant CLI no seu terminal em menos de 10 segundos.",
+      "button": "Voltar para Instalação"
+    }
   }
 }

@@ -1,22 +1,14 @@
 "use client";
 
 import * as React from "react";
-import { SITE_CONFIG } from "@/lib/constants";
-import { Badge } from "@/components/ui/badge";
-import { LuTerminal, LuMenu, LuX } from "react-icons/lu";
-import { FaGithub } from "react-icons/fa";
+import { LuMenu, LuX } from "react-icons/lu";
 import { Button } from "../ui/button";
 import { LanguageSelector } from "@/components/language-selector";
 import { useTranslation } from "react-i18next";
 import { ThemeToggle } from "@/components/theme-toggle";
-
-const NAV_ITEMS = [
-  { href: "#install", labelKey: "nav.install" },
-  { href: "#features", labelKey: "nav.features" },
-  { href: "#demo", labelKey: "nav.demo" },
-  { href: "#security", labelKey: "nav.security" },
-  { href: "#faq", labelKey: "nav.faq" },
-] as const;
+import { Brand } from "../brand";
+import { NAV_ITEMS, SITE_CONFIG } from "@/lib/constants";
+import { FaGithub } from "react-icons/fa";
 
 export function Navbar() {
   const { t } = useTranslation();
@@ -36,19 +28,7 @@ export function Navbar() {
     <header className="border-border bg-background sticky top-0 z-50 w-full border-b">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-900 p-px dark:bg-white">
-            <div className="bg-background flex h-full w-full items-center justify-center rounded-[7px]">
-              <LuTerminal className="text-zinc-900 dark:text-white" size={18} />
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-foreground text-lg font-bold tracking-tight">
-              {SITE_CONFIG.name}
-            </span>
-            <Badge variant="secondary" className="text-[10px]">
-              {SITE_CONFIG.version}
-            </Badge>
-          </div>
+          <Brand />
         </div>
 
         <nav className="text-muted-foreground hidden items-center gap-6 text-sm font-medium lg:flex">
@@ -64,29 +44,18 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-2.5 lg:flex">
-          <LanguageSelector side="bottom" />
-          <ThemeToggle />
-          <Button variant="outline" size="icon">
-            <a
-              href={SITE_CONFIG.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={t("nav.githubAria", "GitHub Repository")}
-            >
-              <FaGithub size={18} />
+          <Button variant="default">
+            <a href="/docs" aria-label={t("nav.gettingStarted")}>
+              {t("nav.gettingStarted")}
             </a>
           </Button>
+          <LanguageSelector side="bottom" />
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <Button variant="outline" size="icon">
-            <a
-              href={SITE_CONFIG.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={t("nav.githubAria", "GitHub Repository")}
-            >
-              <FaGithub size={18} />
+          <Button variant="default">
+            <a href="/docs" aria-label={t("nav.gettingStarted")}>
+              {t("nav.gettingStarted")}
             </a>
           </Button>
           <Button
@@ -102,7 +71,7 @@ export function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="border-border/80 bg-background/95 animate-in fade-in-0 slide-in-from-top-2 border-t px-4 py-4 shadow-xl backdrop-blur-xl duration-200 lg:hidden">
+        <div className="border-border/80 bg-background animate-in fade-in-0 slide-in-from-top-2 absolute top-full left-0 right-0 border-b px-4 py-4 shadow-2xl backdrop-blur-xl duration-200 lg:hidden">
           <nav className="flex flex-col gap-1">
             {NAV_ITEMS.map((item) => (
               <a
@@ -121,6 +90,17 @@ export function Navbar() {
               <LanguageSelector side="bottom" />
               <ThemeToggle />
             </div>
+            <Button variant="outline" size="sm">
+              <a
+                href={SITE_CONFIG.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5"
+              >
+                <FaGithub size={14} />
+                <span>GitHub</span>
+              </a>
+            </Button>
           </div>
         </div>
       )}
