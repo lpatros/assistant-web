@@ -54,9 +54,9 @@ export function DocsSidebar({
 
         return (
           <div key={group.title} className="space-y-1">
-            <h4 className="text-muted-foreground px-3 text-[11px] font-semibold tracking-wider uppercase">
+            <div className="text-muted-foreground px-3 text-[11px] font-semibold tracking-wider uppercase">
               {groupTitle}
-            </h4>
+            </div>
             <div className="space-y-0.5 pt-1">
               {group.items.map((item) => {
                 const isActive = activeId === item.id;

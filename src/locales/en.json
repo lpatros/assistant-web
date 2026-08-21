@@ -398,7 +398,7 @@
       "badge": "06. Models & Persistence",
       "heading": "Model Management per Engine",
       "description": "Each engine maintains its own model selection saved independently. When you switch from ollama to agy and later back to ollama, your model preference is seamlessly restored.",
-      "code": "# Interactive menu to pick a model for the current engine\nassistant model --list\n\n# Set a specific model for the active engine\nassistant model set qwen2.5-coder:7b\nassistant model set gemini-3.6-flash-medium\n\n# Display the currently configured model\nassistant model status",
+      "code": "# Interactive menu to pick a model for the current engine\nassistant model --list\n\n# Set a specific model for the active engine\nassistant model set gemma4:e2b\nassistant model set opencode/big-pickle\n\n# Display the currently configured model\nassistant model status",
       "configTitle": "Persistence in data/config.txt",
       "configDesc": "All preferences are saved in a clean key-value format inside data/config.txt:"
     },

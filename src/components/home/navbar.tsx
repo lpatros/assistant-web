@@ -2,13 +2,14 @@
 
 import * as React from "react";
 import { LuMenu, LuX } from "react-icons/lu";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import { LanguageSelector } from "@/components/language-selector";
 import { useTranslation } from "react-i18next";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Brand } from "../brand";
 import { NAV_ITEMS, SITE_CONFIG } from "@/lib/constants";
 import { FaGithub } from "react-icons/fa";
+import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const { t } = useTranslation();
@@ -44,20 +45,24 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-2.5 lg:flex">
-          <Button variant="default">
-            <a href="/docs" aria-label={t("nav.gettingStarted")}>
-              {t("nav.gettingStarted")}
-            </a>
-          </Button>
+          <a
+            href="/docs"
+            aria-label={t("nav.gettingStarted")}
+            className={cn(buttonVariants({ variant: "default" }))}
+          >
+            {t("nav.gettingStarted")}
+          </a>
           <LanguageSelector side="bottom" />
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <Button variant="default">
-            <a href="/docs" aria-label={t("nav.gettingStarted")}>
-              {t("nav.gettingStarted")}
-            </a>
-          </Button>
+          <a
+            href="/docs"
+            aria-label={t("nav.gettingStarted")}
+            className={cn(buttonVariants({ variant: "default" }))}
+          >
+            {t("nav.gettingStarted")}
+          </a>
           <Button
             variant="outline"
             size="icon"
@@ -90,17 +95,18 @@ export function Navbar() {
               <LanguageSelector side="bottom" />
               <ThemeToggle />
             </div>
-            <Button variant="outline" size="sm">
-              <a
-                href={SITE_CONFIG.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5"
-              >
-                <FaGithub size={14} />
-                <span>GitHub</span>
-              </a>
-            </Button>
+            <a
+              href={SITE_CONFIG.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                buttonVariants({ variant: "outline", size: "sm" }),
+                "flex items-center gap-1.5"
+              )}
+            >
+              <FaGithub size={14} />
+              <span>GitHub</span>
+            </a>
           </div>
         </div>
       )}

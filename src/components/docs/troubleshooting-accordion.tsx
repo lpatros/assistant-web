@@ -5,6 +5,7 @@ import { LuChevronDown, LuCircleHelp } from "react-icons/lu";
 import { cn } from "@/lib/utils";
 import { CodeBlock } from "../code-block";
 import { useTranslation } from "react-i18next";
+import { SITE_CONFIG } from "@/lib/constants";
 
 interface FAQItem {
   id: string;
@@ -83,7 +84,7 @@ export function TroubleshootingAccordion() {
         <div className="space-y-2 text-xs text-zinc-600 sm:text-sm dark:text-zinc-400">
           <p>{t("docs.troubleshooting.faqs.updateRollback.p1")}</p>
           <CodeBlock
-            code={`assistant update --list\nassistant update @1.4.0`}
+            code={`assistant update --list\nassistant update @${SITE_CONFIG.version}`}
             language="bash"
           />
         </div>
@@ -95,9 +96,9 @@ export function TroubleshootingAccordion() {
     <div className="my-6 space-y-3 rounded-xl border border-zinc-200 bg-white p-4 shadow-xs sm:p-6 dark:border-zinc-800 dark:bg-zinc-950">
       <div className="mb-4 flex items-center gap-2">
         <LuCircleHelp className="text-primary" size={20} />
-        <h4 className="text-foreground text-sm font-semibold">
+        <h3 className="text-foreground text-sm font-semibold">
           {t("docs.troubleshooting.faqTitle")}
-        </h4>
+        </h3>
       </div>
 
       <div className="space-y-2">
@@ -111,6 +112,7 @@ export function TroubleshootingAccordion() {
               <button
                 type="button"
                 onClick={() => toggle(faq.id)}
+                aria-expanded={isOpen}
                 className="text-foreground flex w-full cursor-pointer items-center justify-between p-3.5 text-left text-xs font-medium transition-colors hover:bg-zinc-100/50 sm:text-sm dark:hover:bg-zinc-800/50"
               >
                 <span>{faq.question}</span>

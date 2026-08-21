@@ -12,7 +12,7 @@ export function ModelsSection() {
       id="models"
       className="scroll-mt-24 space-y-4 border-b border-zinc-200 py-12 dark:border-zinc-800"
     >
-      <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-zinc-500 uppercase">
+      <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-zinc-600 uppercase dark:text-zinc-400">
         <span>{t("docs.models.badge")}</span>
       </div>
       <h2 className="text-foreground text-2xl font-bold tracking-tight">
@@ -39,10 +39,10 @@ export function ModelsSection() {
           filename="data/config.txt"
           language="ini"
           code={`ASSISTANT_ENGINE="ollama"
-ASSISTANT_MODEL_AGY="gemini-3.6-flash-medium"
+ASSISTANT_MODEL_AGY="gemini-3.7-flash-high"
 ASSISTANT_MODEL_CODEX="codex-preview"
 ASSISTANT_MODEL_COPILOT="copilot-chat"
-ASSISTANT_MODEL_OLLAMA="qwen2.5-coder:7b"
+ASSISTANT_MODEL_OLLAMA="gemma4:e2b"
 ASSISTANT_MODEL_OPENCODE="opencode/big-pickle"
 ASSISTANT_MODEL_OLLAMA_THINK_FLAG="--think=false"
 ASSISTANT_LANG="pt-br"

@@ -19,6 +19,7 @@ import {
   TroubleshootingSection,
   DocsCta,
 } from "@/components/docs/sections";
+import { DocsJsonLd } from "@/components/seo/json-ld";
 
 export default function DocsPage() {
   const [searchOpen, setSearchOpen] = React.useState(false);
@@ -124,6 +125,7 @@ export default function DocsPage() {
 
   return (
     <div className="bg-background text-foreground selection:text-foreground flex min-h-screen flex-col selection:bg-indigo-500/30">
+      <DocsJsonLd />
       <DocsNavbar
         onOpenSearch={() => setSearchOpen(true)}
         activeId={activeSectionId}

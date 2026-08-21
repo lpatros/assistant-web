@@ -13,6 +13,7 @@ export interface CopyButtonProps {
   className?: string;
   variant?: "default" | "secondary" | "ghost" | "outline";
   size?: "default" | "sm" | "lg" | "icon" | "xs";
+  "aria-label"?: string;
 }
 
 export function CopyButton({
@@ -22,19 +23,29 @@ export function CopyButton({
   className,
   variant = "secondary",
   size = "sm",
+  "aria-label": customAriaLabel,
   ...props
 }: CopyButtonProps) {
   const { t } = useTranslation();
   const { copied, copy } = useClipboard(2000);
 
   const resolvedCopiedLabel =
-    copiedLabel || (label ? t("install.copied") : undefined);
+    copiedLabel || (label ? t("install.copied", "Copiado!") : undefined);
+
+  const defaultLabel = copied
+    ? resolvedCopiedLabel || t("install.copied", "Copiado!")
+    : label || t("install.copy", "Copiar");
+
+  const ariaLabel =
+    customAriaLabel ||
+    (typeof defaultLabel === "string" ? defaultLabel : t("install.copy", "Copiar"));
 
   return (
     <Button
       type="button"
       variant={variant}
       size={size}
+      aria-label={ariaLabel}
       onClick={() => copy(textToCopy)}
       className={cn(
         "transition-all duration-200 cursor-pointer font-mono select-none gap-1.5",

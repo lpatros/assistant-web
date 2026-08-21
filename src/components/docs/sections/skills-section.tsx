@@ -11,7 +11,7 @@ export function SkillsSection() {
 
   return (
     <section className="space-y-6 border-b border-zinc-200 py-12 dark:border-zinc-800">
-      <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-zinc-500 uppercase">
+      <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-zinc-600 uppercase dark:text-zinc-400">
         <span>{t("docs.skills.badge")}</span>
       </div>
       <h2 className="text-foreground text-2xl font-bold tracking-tight">

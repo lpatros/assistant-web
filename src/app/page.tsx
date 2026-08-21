@@ -5,6 +5,7 @@ import { TerminalDemo } from "@/components/home/terminal-demo";
 import { SecuritySection } from "@/components/home/security-section";
 import { FAQSection } from "@/components/home/faq/faq-section";
 import { Footer } from "@/components/footer";
+import { SoftwareAppJsonLd, FAQJsonLd } from "@/components/seo/json-ld";
 import { tv } from "tailwind-variants";
 
 const Styles = tv({
@@ -17,6 +18,8 @@ const Styles = tv({
 export default function Home() {
   return (
     <div className={Styles().div()}>
+      <SoftwareAppJsonLd />
+      <FAQJsonLd />
       <Navbar />
 
       <main className={Styles().main()}>

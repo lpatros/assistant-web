@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { SITE_CONFIG } from "@/lib/constants";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { LanguageSelector } from "@/components/language-selector";
 import { ThemeToggle } from "@/components/theme-toggle";
 import {
@@ -15,6 +15,7 @@ import { useTranslation } from "react-i18next";
 import { useOsDetection } from "@/hooks/use-os-detection";
 import { DocsSidebar } from "./docs-sidebar";
 import { Brand } from "../brand";
+import { cn } from "@/lib/utils";
 
 interface DocsNavbarProps {
   onOpenSearch: () => void;
@@ -82,17 +83,18 @@ export function DocsNavbar({
               <LanguageSelector side="bottom" />
               <ThemeToggle />
             </div>
-            <Button variant="outline" size="sm">
-              <a
-                href={SITE_CONFIG.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5"
-              >
-                <FaGithub size={14} />
-                <span>GitHub</span>
-              </a>
-            </Button>
+            <a
+              href={SITE_CONFIG.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                buttonVariants({ variant: "outline", size: "sm" }),
+                "flex items-center gap-1.5"
+              )}
+            >
+              <FaGithub size={14} />
+              <span>GitHub</span>
+            </a>
           </div>
 
           <DocsSidebar

@@ -33,7 +33,7 @@ export function InstallCard({ showShadow = true, showDemo = true }: { showShadow
 
   return (
     <div className="relative mx-auto w-full max-w-3xl">
-      <div className={cn("absolute -inset-1 rounded-2xl opacity-75 blur-xl transition-all duration-500", showShadow ? "bg-linear-to-r from-cyan-500/20 via-indigo-500/25 to-purple-600/20" : "")} />
+      <div className={cn("absolute -inset-1 rounded-2xl opacity-75 blur-xl transition-all duration-500", showShadow ? "bg-primary/15" : "")} />
 
       <div className="relative overflow-hidden rounded-2xl border border-zinc-700/60 bg-zinc-950/90 shadow-2xl backdrop-blur-xl">
         <div className="flex items-center justify-between border-b border-zinc-800/90 bg-zinc-900/70 px-4 py-3 sm:px-6">
@@ -89,6 +89,7 @@ export function InstallCard({ showShadow = true, showDemo = true }: { showShadow
                     textToCopy={`curl -fsSL ${origin}/install.sh | bash`}
                     variant="outline"
                     size="sm"
+                    aria-label={t("install.copy")}
                     className="w-full sm:w-auto border-zinc-700 bg-zinc-800/90 text-zinc-200 hover:bg-zinc-700 hover:text-white"
                   />
                 </div>
@@ -108,6 +109,7 @@ export function InstallCard({ showShadow = true, showDemo = true }: { showShadow
                     textToCopy={`curl -fsSL ${origin}/install.sh | bash`}
                     variant="outline"
                     size="sm"
+                    aria-label={t("install.copy", "Copiar comando de instalação macOS")}
                     className="w-full sm:w-auto border-zinc-700 bg-zinc-800/90 text-zinc-200 hover:bg-zinc-700 hover:text-white"
                   />
                 </div>
@@ -127,6 +129,7 @@ export function InstallCard({ showShadow = true, showDemo = true }: { showShadow
                     textToCopy={`irm ${origin}/install.ps1 | iex`}
                     variant="outline"
                     size="sm"
+                    aria-label={t("install.copy", "Copiar comando de instalação Windows")}
                     className="w-full sm:w-auto border-zinc-700 bg-zinc-800/90 text-zinc-200 hover:bg-zinc-700 hover:text-white"
                   />
                 </div>
@@ -145,12 +148,12 @@ export function InstallCard({ showShadow = true, showDemo = true }: { showShadow
             </div>
             {showDemo && (
               <a
-              href="#demo"
-              className="flex flex-row items-center justify-center gap-1 text-zinc-400 hover:text-zinc-100 transition-colors underline underline-offset-4"
-            >
-              <span>{t("install.viewDemo")}</span>
-              <LuChevronRight size={15} />
-            </a>
+                href="#demo"
+                className="flex flex-row items-center justify-center gap-1 text-zinc-400 hover:text-zinc-100 transition-colors underline underline-offset-4 min-h-[24px] py-1"
+              >
+                <span>{t("install.viewDemo")}</span>
+                <LuChevronRight size={15} />
+              </a>
             )}
           </div>
         </div>

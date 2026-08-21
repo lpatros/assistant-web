@@ -3,9 +3,10 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { LuShieldCheck, LuExternalLink, LuTerminal } from "react-icons/lu";
-import { Button } from "../ui/button";
+import { buttonVariants } from "../ui/button";
 import { SITE_CONFIG } from "@/lib/constants";
 import { useTranslation } from "react-i18next";
+import { cn } from "@/lib/utils";
 
 export function SecuritySection() {
   const { t } = useTranslation();
@@ -31,25 +32,26 @@ export function SecuritySection() {
                   <LuShieldCheck size={14} className="text-green-600" />
                 </div>
                 <div>
-                  <h4 className="text-foreground text-sm font-semibold">
+                  <h3 className="text-foreground text-sm font-semibold">
                     {t("security.noRootTitle")}
-                  </h4>
+                  </h3>
                   <p className="text-muted-foreground text-xs">
                     {t("security.noRootDesc")}
                   </p>
                 </div>
               </div>
-              <Button className="px-5 py-3" variant="outline">
-                <a
-                  className="flex flex-row items-center justify-center gap-2"
-                  href={SITE_CONFIG.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {t("security.githubBtn")}
-                  <LuExternalLink size={12} />
-                </a>
-              </Button>
+              <a
+                className={cn(
+                  buttonVariants({ variant: "outline" }),
+                  "inline-flex items-center justify-center gap-2 px-5 py-3 h-auto min-h-9"
+                )}
+                href={SITE_CONFIG.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>{t("security.githubBtn")}</span>
+                <LuExternalLink size={12} />
+              </a>
             </div>
           </div>
 
@@ -74,17 +76,18 @@ export function SecuritySection() {
                   curl -fsSL /install.sh | less
                 </div>
                 <div className="flex justify-end pt-2">
-                  <Button className="px-0 py-0" variant="link">
-                    <a
-                      href="/install.sh"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-medium"
-                    >
-                      <span>{t("security.viewScript")}</span>
-                      <LuExternalLink size={12} />
-                    </a>
-                  </Button>
+                  <a
+                    href="/install.sh"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      buttonVariants({ variant: "link" }),
+                      "inline-flex items-center gap-1.5 text-xs font-medium h-auto py-1 px-1.5 min-h-[24px]"
+                    )}
+                  >
+                    <span>{t("security.viewScript")}</span>
+                    <LuExternalLink size={12} />
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -109,17 +112,18 @@ export function SecuritySection() {
                   irm /install.ps1 | more
                 </div>
                 <div className="flex justify-end pt-2">
-                  <Button className="px-0 py-0" variant="link">
-                    <a
-                      href="/install.ps1"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-medium"
-                    >
-                      <span>{t("security.viewScript")}</span>
-                      <LuExternalLink size={12} />
-                    </a>
-                  </Button>
+                  <a
+                    href="/install.ps1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      buttonVariants({ variant: "link" }),
+                      "inline-flex items-center gap-1.5 text-xs font-medium h-auto py-1 px-1.5 min-h-[24px]"
+                    )}
+                  >
+                    <span>{t("security.viewScript")}</span>
+                    <LuExternalLink size={12} />
+                  </a>
                 </div>
               </CardContent>
             </Card>
