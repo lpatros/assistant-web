@@ -5,6 +5,7 @@ import { LuChevronDown, LuCircleHelp } from "react-icons/lu";
 import { cn } from "@/lib/utils";
 import { CodeBlock } from "../code-block";
 import { useTranslation } from "react-i18next";
+import { SITE_CONFIG } from "@/lib/constants";
 
 interface FAQItem {
   id: string;
@@ -83,7 +84,7 @@ export function TroubleshootingAccordion() {
         <div className="space-y-2 text-xs text-zinc-600 sm:text-sm dark:text-zinc-400">
           <p>{t("docs.troubleshooting.faqs.updateRollback.p1")}</p>
           <CodeBlock
-            code={`assistant update --list\nassistant update @1.4.0`}
+            code={`assistant update --list\nassistant update @${SITE_CONFIG.version}`}
             language="bash"
           />
         </div>
