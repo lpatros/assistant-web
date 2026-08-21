@@ -14,9 +14,9 @@ export function OverviewSection() {
       <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-zinc-500 uppercase">
         <span>{t("docs.overview.badge")}</span>
       </div>
-      <h2 className="text-foreground text-2xl font-bold tracking-tight">
+      <h1 className="text-foreground text-2xl font-bold tracking-tight sm:text-3xl">
         {t("docs.overview.heading")}
-      </h2>
+      </h1>
       <p className="text-muted-foreground text-sm leading-relaxed">
         {t("docs.overview.description")}
       </p>

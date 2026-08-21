@@ -87,9 +87,9 @@ export function Callout({
         </div>
         <div className="flex-1 space-y-1">
           {displayTitle && (
-            <h5 className={cn("font-semibold tracking-tight text-xs uppercase", config.titleColor)}>
+            <p className={cn("font-semibold tracking-tight text-xs uppercase", config.titleColor)}>
               {displayTitle}
-            </h5>
+            </p>
           )}
           <div className="text-foreground/90 dark:text-zinc-200 text-xs sm:text-sm">
             {children}

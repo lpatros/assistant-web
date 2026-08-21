@@ -24,9 +24,9 @@ export function ThinkModeSection() {
 
       <div className="flex flex-col gap-4">
         <div className="space-y-2 rounded-xl border border-zinc-200 bg-zinc-50/50 p-4 dark:border-zinc-800 dark:bg-zinc-900/40">
-          <h4 className="text-foreground text-xs font-semibold tracking-wider uppercase">
+          <h3 className="text-foreground text-xs font-semibold tracking-wider uppercase">
             {t("docs.thinkMode.persistentTitle")}
-          </h4>
+          </h3>
           <CodeBlock
             language="bash"
             code={t("docs.thinkMode.persistentCode")}
@@ -34,9 +34,9 @@ export function ThinkModeSection() {
         </div>
 
         <div className="space-y-2 rounded-xl border border-zinc-200 bg-zinc-50/50 p-4 dark:border-zinc-800 dark:bg-zinc-900/40">
-          <h4 className="text-foreground text-xs font-semibold tracking-wider uppercase">
+          <h3 className="text-foreground text-xs font-semibold tracking-wider uppercase">
             {t("docs.thinkMode.runtimeTitle")}
-          </h4>
+          </h3>
           <CodeBlock
             language="bash"
             code={t("docs.thinkMode.runtimeCode")}
