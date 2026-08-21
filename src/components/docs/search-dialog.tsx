@@ -105,6 +105,7 @@ export function SearchDialog({ isOpen, onClose, onSelect }: SearchDialogProps) {
           <button
             type="button"
             onClick={onClose}
+            aria-label={t("docs.search.close", "Fechar busca")}
             className="cursor-pointer rounded-md p-1.5 text-zinc-400 hover:bg-zinc-100 hover:text-zinc-600 dark:hover:bg-zinc-900 dark:hover:text-zinc-200"
           >
             <LuX size={18} />

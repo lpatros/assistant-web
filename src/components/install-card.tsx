@@ -89,6 +89,7 @@ export function InstallCard({ showShadow = true, showDemo = true }: { showShadow
                     textToCopy={`curl -fsSL ${origin}/install.sh | bash`}
                     variant="outline"
                     size="sm"
+                    aria-label={t("install.copy")}
                     className="w-full sm:w-auto border-zinc-700 bg-zinc-800/90 text-zinc-200 hover:bg-zinc-700 hover:text-white"
                   />
                 </div>
@@ -108,6 +109,7 @@ export function InstallCard({ showShadow = true, showDemo = true }: { showShadow
                     textToCopy={`curl -fsSL ${origin}/install.sh | bash`}
                     variant="outline"
                     size="sm"
+                    aria-label={t("install.copy", "Copiar comando de instalação macOS")}
                     className="w-full sm:w-auto border-zinc-700 bg-zinc-800/90 text-zinc-200 hover:bg-zinc-700 hover:text-white"
                   />
                 </div>
@@ -127,6 +129,7 @@ export function InstallCard({ showShadow = true, showDemo = true }: { showShadow
                     textToCopy={`irm ${origin}/install.ps1 | iex`}
                     variant="outline"
                     size="sm"
+                    aria-label={t("install.copy", "Copiar comando de instalação Windows")}
                     className="w-full sm:w-auto border-zinc-700 bg-zinc-800/90 text-zinc-200 hover:bg-zinc-700 hover:text-white"
                   />
                 </div>
@@ -145,12 +148,12 @@ export function InstallCard({ showShadow = true, showDemo = true }: { showShadow
             </div>
             {showDemo && (
               <a
-              href="#demo"
-              className="flex flex-row items-center justify-center gap-1 text-zinc-400 hover:text-zinc-100 transition-colors underline underline-offset-4"
-            >
-              <span>{t("install.viewDemo")}</span>
-              <LuChevronRight size={15} />
-            </a>
+                href="#demo"
+                className="flex flex-row items-center justify-center gap-1 text-zinc-400 hover:text-zinc-100 transition-colors underline underline-offset-4 min-h-[24px] py-1"
+              >
+                <span>{t("install.viewDemo")}</span>
+                <LuChevronRight size={15} />
+              </a>
             )}
           </div>
         </div>
