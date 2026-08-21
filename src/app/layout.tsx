@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { I18nProvider } from "@/components/i18n-provider";
 import { Analytics } from "@vercel/analytics/next";
+import { VercelToolbar } from '@vercel/toolbar/next';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -126,6 +127,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const shouldInjectToolbar = process.env.NODE_ENV === 'development';
   return (
     <html
       lang="en"
@@ -142,6 +144,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
+            {shouldInjectToolbar && <VercelToolbar />}
           </ThemeProvider>
         </I18nProvider>
       </body>
