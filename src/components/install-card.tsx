@@ -33,7 +33,7 @@ export function InstallCard({ showShadow = true, showDemo = true }: { showShadow
 
   return (
     <div className="relative mx-auto w-full max-w-3xl">
-      <div className={cn("absolute -inset-1 rounded-2xl opacity-75 blur-xl transition-all duration-500", showShadow ? "bg-linear-to-r from-cyan-500/20 via-indigo-500/25 to-purple-600/20" : "")} />
+      <div className={cn("absolute -inset-1 rounded-2xl opacity-75 blur-xl transition-all duration-500", showShadow ? "bg-primary/15" : "")} />
 
       <div className="relative overflow-hidden rounded-2xl border border-zinc-700/60 bg-zinc-950/90 shadow-2xl backdrop-blur-xl">
         <div className="flex items-center justify-between border-b border-zinc-800/90 bg-zinc-900/70 px-4 py-3 sm:px-6">
