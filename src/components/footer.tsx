@@ -2,12 +2,13 @@
 
 import { SITE_CONFIG } from "@/lib/constants";
 import { FaGithub } from "react-icons/fa";
-import { Button } from "./ui/button";
+import { buttonVariants } from "./ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useTranslation } from "react-i18next";
 import { LanguageSelector } from "./language-selector";
 import { Brand } from "./brand";
 import { NAV_ITEMS } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 export function Footer() {
   const { t } = useTranslation();
@@ -33,16 +34,18 @@ export function Footer() {
           <div className="flex items-center gap-3">
             <LanguageSelector side="top" />
             <ThemeToggle />
-            <Button variant="outline" size="icon">
-              <a
-                href={SITE_CONFIG.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t("nav.githubAria", "GitHub Repository")}
-              >
-                <FaGithub size={16} />
-              </a>
-            </Button>
+            <a
+              href={SITE_CONFIG.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t("nav.githubAria", "GitHub Repository")}
+              className={cn(
+                buttonVariants({ variant: "outline", size: "icon" }),
+                "inline-flex items-center justify-center size-7"
+              )}
+            >
+              <FaGithub size={16} />
+            </a>
           </div>
         </div>
 
