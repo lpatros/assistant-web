@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { SITE_CONFIG } from "@/lib/constants";
@@ -20,14 +20,98 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#090d16" },
+    { media: "(prefers-color-scheme: dark)", color: "#090d16" },
+  ],
+  colorScheme: "dark light",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
-  title: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
-  description: SITE_CONFIG.description,
-  keywords: SITE_CONFIG.keywords,
-  authors: SITE_CONFIG.authors,
-  icons: {
-    icon: "./terminal.svg",
+  metadataBase: new URL(SITE_CONFIG.url),
+  title: {
+    default: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
+    template: `%s | ${SITE_CONFIG.name}`,
   },
+  description: SITE_CONFIG.description,
+  applicationName: SITE_CONFIG.name,
+  authors: SITE_CONFIG.authors,
+  generator: "Next.js",
+  keywords: SITE_CONFIG.keywords,
+  referrer: "origin-when-cross-origin",
+  creator: SITE_CONFIG.creator,
+  publisher: SITE_CONFIG.publisher,
+  category: SITE_CONFIG.category,
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/",
+      "pt-BR": "/",
+      "es-ES": "/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    alternateLocale: ["pt_BR", "es_ES"],
+    url: SITE_CONFIG.url,
+    siteName: SITE_CONFIG.name,
+    title: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
+    description: SITE_CONFIG.description,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${SITE_CONFIG.name} — Modular & Localized AI Shell Wrapper`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
+    description: SITE_CONFIG.description,
+    site: SITE_CONFIG.twitterHandle,
+    creator: SITE_CONFIG.twitterHandle,
+    images: [
+      {
+        url: "/twitter-image",
+        width: 1200,
+        height: 630,
+        alt: `${SITE_CONFIG.name} Preview`,
+      },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/terminal.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/terminal.svg",
+    apple: "/terminal.svg",
+  },
+  manifest: "/manifest.webmanifest",
 };
 
 const Styles = tv({
