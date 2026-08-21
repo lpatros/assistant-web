@@ -213,7 +213,7 @@
       "support": {
         "title": "Suporte",
         "items": {
-          "troubleshootingFaq": "Troubleshooting & FAQ"
+          "troubleshootingFaq": "Soluções de Probelmas & FAQ"
         }
       }
     },
@@ -331,7 +331,7 @@
         },
         {
           "id": "troubleshooting-faq",
-          "title": "Troubleshooting & FAQ",
+          "title": "Soluções de Problemas & FAQ",
           "category": "FAQ",
           "snippet": "Resolução de problemas no PowerShell, Git Bash, aspas e Ollama.",
           "anchor": "#troubleshooting-faq",
@@ -398,7 +398,7 @@
       "badge": "06. Modelos & Persistência",
       "heading": "Gerenciamento de Modelos por Engine",
       "description": "Cada engine possui sua própria seleção de modelo salva independentemente. Quando você altera a engine de ollama para agy e depois retorna para ollama, sua preferência de modelo é restaurada perfeitamente.",
-      "code": "# Menu interativo para escolher o modelo da engine atual\nassistant model --list\n\n# Define um modelo específico para a engine ativa\nassistant model set qwen2.5-coder:7b\nassistant model set gemini-3.6-flash-medium\n\n# Exibe o modelo configurado no momento\nassistant model status",
+      "code": "# Menu interativo para escolher o modelo da engine atual\nassistant model --list\n\n# Define um modelo específico para a engine ativa\nassistant model set gemma4:e2b\nassistant model set opencode/big-pickle\n\n# Exibe o modelo configurado no momento\nassistant model status",
       "configTitle": "Persistência no Arquivo data/config.txt",
       "configDesc": "Todas as preferências são salvas em formato chave-valor simples dentro de data/config.txt:"
     },
@@ -468,9 +468,9 @@
     },
     "troubleshooting": {
       "badge": "10. Suporte & Diagnóstico",
-      "heading": "Troubleshooting & Perguntas Frequentes",
+      "heading": "Soluções de Problemas & Perguntas Frequentes",
       "description": "Respostas e soluções para os cenários e dúvidas mais comuns no dia a dia.",
-      "faqTitle": "Troubleshooting & Perguntas Frequentes (FAQ)",
+      "faqTitle": "Soluções de Problemas & Perguntas Frequentes (FAQ)",
       "faqs": {
         "psExec": {
           "question": "Erro no PowerShell: 'running scripts is disabled on this system'",
