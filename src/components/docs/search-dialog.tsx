@@ -87,7 +87,7 @@ export function SearchDialog({ isOpen, onClose, onSelect }: SearchDialogProps) {
       >
         <div className="relative flex items-center border-b border-zinc-200 px-4 dark:border-zinc-800">
           <LuSearch
-            className="mr-3 shrink-0 text-zinc-400 dark:text-zinc-500"
+            className="mr-3 shrink-0 text-zinc-400 dark:text-zinc-400"
             size={18}
           />
           <input

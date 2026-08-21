@@ -126,14 +126,14 @@ export function CodeBlock({
             return (
               <div key={index} className="table-row">
                 {showLineNumbers && (
-                  <span className="table-cell pr-4 text-right text-zinc-600 select-none">
+                  <span className="table-cell pr-4 text-right text-zinc-400 select-none">
                     {index + 1}
                   </span>
                 )}
                 <span
                   className={cn(
                     "table-cell",
-                    isComment && "text-zinc-500 italic",
+                    isComment && "text-zinc-400 italic",
                     isPrompt && "font-medium text-cyan-400",
                     isOutput && "font-medium text-emerald-400",
                     !isComment && !isPrompt && !isOutput && "text-zinc-200",
