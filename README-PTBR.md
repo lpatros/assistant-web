@@ -80,19 +80,7 @@ src/
 ├── hooks/                 # Custom hooks
 ├── lib/                   # Utilitários e configurações
 ├── locales/               # Arquivos de tradução
-├── types/                 # Definições de tipos TypeScript
-├── .gitignore             # Arquivos ignorados pelo Git
-├── .prettierrc            # Configurações do Prettier
-├── components.json        # Configurações dos componentes
-├── eslint.config.mjs      # Configurações do ESLint
-├── LICENSE.txt            # Licença do projeto
-├── next.config.ts         # Configurações do Next.js
-├── package-lock.json      # Dependências do projeto
-├── package.json           # Dependências e scripts do projeto
-├── pnpm-lock.yaml         # Dependências do projeto
-├── pnpm-workspace.yaml    # Configurações do workspace
-├── README.md              # README
-└── tsconfig.json          # Configurações do TypeScript
+└── types/                 # Definições de tipos TypeScript
 ```
 
 ## Licença
