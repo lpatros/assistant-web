@@ -15,9 +15,7 @@
   <br>
 </div>
 
-
 # Quick Links
-
 
 - [Description](#description)
 - [Technologies](#technologies)
@@ -25,80 +23,64 @@
 - [Project Structure](#project-structure)
 - [License](#license)
 
-
 ## Description
 
-This repository contains the landing website for **Assistant CLI**, a lightweight, modular, and localized shell wrapper that orchestrates AI engines.
+Assistant Web is a web application built with Next.js 16 that serves as a showcase, documentation, and installation platform for Assistant-CLI. The project provides a user experience with multi-language support, light and dark themes, and a simplified installation process via terminal scripts.
 
-The project exposes two **routes** (`/install.sh` and `/install.ps1`) that proxy the installation scripts hosted on GitHub, ensuring that the installation commands displayed on the site always serve the latest version of the scripts.
+The application was designed with a focus on performance and accessibility, utilizing React 19 Server Components and modern styling with Tailwind CSS 4. The modular structure makes maintenance and adding new languages or features easy.
+
+The project includes installation scripts for Linux/macOS (`install.sh`) and Windows (`install.ps1`), allowing users to install the terminal assistant directly from the documentation.
 
 ## Technologies
 
-- **Next.js 16** — React framework with App Router, server-side rendering, and API routes.
-- **React 19** — UI library with modern components and hooks.
-- **TypeScript 5** — Static typing across the entire project codebase.
-- **Tailwind CSS 4** — Utility-first styling with dark theme support and variants.
-- **shadcn/ui + Base UI** — Reusable and accessible UI components.
-- **i18next / react-i18next** — Internationalization with support for pt-BR, en, and es.
-- **next-themes** — Light/dark theme toggle and persistence.
-- **lucide-react / react-icons** — Icon sets for the interface.
-- **class-variance-authority / tailwind-variants / tailwind-merge** — Composition and variants for utility classes.
-- **ESLint + Prettier** — Code linting and formatting.
-
+- **Next.js 16** — React framework with server-side rendering and static site generation
+- **React 19** — UI library with Server Components support
+- **TypeScript 5** — Static typing for JavaScript
+- **Tailwind CSS 4** — Utility-first CSS framework
+- **shadcn/ui** — Accessible and customizable component library
+- **next-themes** — Theme management (light/dark)
+- **i18next** — Internationalization with support for EN, PT-BR, and ES
+- **Lucide React** — High-quality icons
+- **Vercel Analytics** — Performance and usage analytics
 
 ## Features
 
-### Product Presentation
+### Multi-language Support
+The application supports three languages: English, Brazilian Portuguese, and Spanish. Language selection is persistent and automatically detects the browser's language.
 
-- **Hero section** with tagline, description, and access to the official GitHub repository.
-- **Features grid** highlighting Multi-Engine, Skills, Extensibility, Multi-Language, Simple Installation, and Local Persistence.
+### Light and Dark Themes
+Toggle between light and dark themes with automatic detection of operating system preferences.
 
-### Direct Installation
+### Simplified Installation
+Installation cards with scripts for Linux/macOS and Windows, including automatic detection of the user's operating system.
 
-- **OS Tabs** (Linux, macOS, Windows) with automatic visitor OS detection.
-- **Copyable commands** (`curl | bash` and `irm | iex`) pointing to the application's proxy routes.
-- **API Routes** `/install.sh` and `/install.ps1` that redirect the official GitHub scripts.
+### Interactive Documentation
+Documentation pages with syntax-highlighted code, informative callouts, and structured navigation.
 
-### Terminal Demo
-
-- **Simulated interactive terminal** with real workflows: direct chat, semantic commit, status and diagnostics, and engine/channel switching.
-- **Copy button** on all commands and example outputs.
-
-### Transparency and Security
-
-- **Security section** reinforcing that the installer and the CLI are 100% open source.
-- Links to inspect the Bash script and PowerShell script before execution.
-
-### Internationalization and Theme
-
-- **Language selector** with support for Portuguese (BR), English (US), and Spanish.
-- **Theme toggle** (light/dark) with preference persistence.
+### SEO Optimized
+Comprehensive metadata, Open Graph images, and automatically generated sitemap.
 
 ## Project Structure
 
 ```
-.
-├── public/                      # Public files
-├── src/
-│    ├── app/                    # Application routes
-│    ├── components/             # Application components
-│    ├── hooks/                  # Application hooks
-│    ├── lib/                    # Utilities and configuration
-│    ├── locales/                # Website translations
-│    └── types/                  # Application types and interfaces
-├── .gitignore                   # Files ignored by Git
-├── .prettierrc                  # Prettier configuration
-├── components.json              # shadcn/ui configuration
-├── eslint.config.mjs            # ESLint rules (flat config)
-├── LICENSE.txt                  # Project license
-├── next.config.ts               # Next.js configuration
-├── package-lock.json            # Project dependencies
-├── package.json                 # Project manifest and scripts
-├── pnpm-lock.yaml               # Project dependencies
-├── pnpm-workspace.yaml          # pnpm workspace
-├── postcss.config.mjs           # PostCSS configuration
-├── README.md                    # Project README
-└── tsconfig.json                # TypeScript configuration
+src/
+├── app/                    # Next.js App Router
+│   ├── docs/              # Documentation pages
+│   ├── install.ps1/       # Windows installation script
+│   ├── install.sh/        # Linux/macOS installation script
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Application root layout
+│   ├── manifest.ts        # PWA manifest
+│   ├── opengraph-image.ts # OpenGraph image
+│   ├── page.tsx           # Home page
+│   ├── robots.ts          # Robots.txt
+│   ├── sitemap.ts         # Sitemap
+│   └── twitter-image.tsx  # Twitter image
+├── components/            # React components
+├── hooks/                 # Custom hooks
+├── lib/                   # Utilities and configuration
+├── locales/               # Translation files
+└── types/                 # TypeScript type definitions
 ```
 
 ## License

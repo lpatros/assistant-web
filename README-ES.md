@@ -15,9 +15,7 @@
   <br>
 </div>
 
-
 # Enlaces Rápidos
-
 
 - [Descripción](#descripción)
 - [Tecnologías](#tecnologías)
@@ -25,82 +23,66 @@
 - [Estructura del Proyecto](#estructura-del-proyecto)
 - [Licencia](#licencia)
 
-
 ## Descripción
 
-Este repositorio contiene el sitio web de presentación de **Assistant CLI**, un wrapper de shell ligero, modular y localizado que orquesta motores de IA.
+Assistant Web es una aplicación web desarrollada con Next.js 16 que sirve como plataforma de presentación, documentación e instalación para Assistant-CLI. El proyecto ofrece una experiencia de usuario con soporte para múltiples idiomas, temas claro y oscuro, y un proceso de instalación simplificado mediante scripts de terminal.
 
-El proyecto expone dos **rutas** (`/install.sh` e `/install.ps1`) que hacen de proxy para los scripts de instalación alojados en GitHub, garantizando que los comandos de instalación mostrados en el sitio siempre sirvan la versión más reciente de los scripts.
+La aplicación fue diseñada con un enfoque en rendimiento y accesibilidad, utilizando Server Components de React 19 y estilos modernos con Tailwind CSS 4. La estructura modular facilita el mantenimiento y la incorporación de nuevos idiomas o funcionalidades.
+
+El proyecto incluye scripts de instalación para Linux/macOS (`install.sh`) y Windows (`install.ps1`), permitiendo a los usuarios instalar el asistente de terminal directamente desde la documentación.
 
 ## Tecnologías
 
-- **Next.js 16** — Framework React con App Router, renderizado en servidor y rutas de API.
-- **React 19** — Biblioteca de interfaz con componentes y hooks modernos.
-- **TypeScript 5** — Tipado estático en todo el código del proyecto.
-- **Tailwind CSS 4** — Estilos basados en utilidades con soporte para tema oscuro y variantes.
-- **shadcn/ui + Base UI** — Componentes de UI reutilizables y accesibles.
-- **i18next / react-i18next** — Internacionalización con soporte para pt-BR, en y es.
-- **next-themes** — Alternancia y persistencia del tema claro/oscuro.
-- **lucide-react / react-icons** — Conjuntos de iconos para la interfaz.
-- **class-variance-authority / tailwind-variants / tailwind-merge** — Composición y variantes de clases utilitarias.
-- **ESLint + Prettier** — Linting y formateo de código.
-
+- **Next.js 16** — Framework de React con renderizado server-side y generación estática
+- **React 19** — Biblioteca de interfaz con soporte para Server Components
+- **TypeScript 5** — Tipado estático para JavaScript
+- **Tailwind CSS 4** — Framework de utilidades para estilos
+- **shadcn/ui** — Biblioteca de componentes accesibles y personalizables
+- **next-themes** — Gestión de temas (claro/oscuro)
+- **i18next** — Internacionalización con soporte para EN, PT-BR y ES
+- **Lucide React** — Iconos de alta calidad
+- **Vercel Analytics** — Análisis de rendimiento y uso
 
 ## Características
 
-### Presentación del Producto
+### Soporte Multilingüe
+La aplicación admite tres idiomas: inglés, portugués brasileño y español. La selección de idioma es persistente y detecta automáticamente el idioma del navegador.
 
-- **Hero section** con eslogan, descripción y acceso al repositorio oficial en GitHub.
-- **Cuadrícula de características** destacando Multi-Engine, Skills, Extensibilidad, Multi-Idioma, Instalación sencilla y Persistencia local.
+### Temas Claro y Oscuro
+Alternancia entre temas claro y oscuro con detección automática de la preferencia del sistema operativo.
 
-### Instalación Directa
+### Instalación Simplificada
+Tarjetas de instalación con scripts para Linux/macOS y Windows, incluyendo detección automática del sistema operativo del usuario.
 
-- **Pestañas por SO** (Linux, macOS, Windows) con detección automática del sistema operativo del visitante.
-- **Comandos copiables** (`curl | bash` e `irm | iex`) que apuntan a las rutas de proxy de la propia aplicación.
-- **Rutas de API** `/install.sh` e `/install.ps1` que redirigen a los scripts oficiales de GitHub.
+### Documentación Interactiva
+Páginas de documentación con resaltado de sintaxis, callouts informativos y navegación estructurada.
 
-### Demostración en Terminal
-
-- **Terminal interactivo simulado** con flujos reales: chat directo, commit semántico, estado y diagnóstico, y cambio de motor/canal.
-- **Botón de copia** en todos los comandos y salidas de ejemplo.
-
-### Transparencia y Seguridad
-
-- **Sección de seguridad** reforzando que el instalador y el CLI son 100% de código abierto.
-- Enlaces para inspeccionar el script Bash y el script PowerShell antes de su ejecución.
-
-### Internacionalización y Tema
-
-- **Selector de idioma** con soporte para Portugués (BR), Inglés (EE. UU.) y Español.
-- **Alternancia de tema** claro/oscuro con persistencia de la preferencia.
+### SEO Optimizado
+Metadatos completos, imágenes Open Graph y sitemap generado automáticamente.
 
 ## Estructura del Proyecto
 
 ```
-.
-├── public/                      # Archivos públicos
-├── src/
-│    ├── app/                    # Rutas de la aplicación
-│    ├── components/             # Componentes de la aplicación
-│    ├── hooks/                  # Hooks de la aplicación
-│    ├── lib/                    # Utilidades y configuraciones
-│    ├── locales/                # Traducciones del sitio
-│    └── types/                  # Tipos e interfaces de la aplicación
-├── .gitignore                   # Archivos ignorados por Git
-├── .prettierrc                  # Configuración de Prettier
-├── components.json              # Configuración de shadcn/ui
-├── eslint.config.mjs            # Reglas de ESLint (flat config)
-├── LICENSE.txt                  # Licencia del proyecto
-├── next.config.ts               # Configuración de Next.js
-├── package-lock.json            # Dependencias del proyecto
-├── package.json                 # Manifiesto y scripts del proyecto
-├── pnpm-lock.yaml               # Dependencias del proyecto
-├── pnpm-workspace.yaml          # Workspace de pnpm
-├── postcss.config.mjs           # Configuración de PostCSS
-├── README.md                    # README del proyecto
-└── tsconfig.json                # Configuración de TypeScript
+src/
+├── app/                    # App Router de Next.js
+│   ├── docs/              # Páginas de documentación
+│   ├── install.ps1/       # Script de instalación de Windows
+│   ├── install.sh/        # Script de instalación de Linux/macOS
+│   ├── globals.css        # Estilos globales
+│   ├── layout.tsx         # Layout raíz de la aplicación
+│   ├── manifest.ts        # Manifiesto PWA
+│   ├── opengraph-image.ts # Imagen OpenGraph
+│   ├── page.tsx           # Página de inicio
+│   ├── robots.ts          # Robots.txt
+│   ├── sitemap.ts         # Sitemap
+│   └── twitter-image.tsx  # Imagen de Twitter
+├── components/            # Componentes de React
+├── hooks/                 # Hooks personalizados
+├── lib/                   # Utilidades y configuración
+├── locales/               # Archivos de traducción
+└── types/                 # Definiciones de tipos TypeScript
 ```
 
 ## Licencia
 
-Este proyecto está licenciado bajo la Licencia MIT - consulte el archivo [LICENSE](LICENSE.txt) para más detalles.
+Este proyecto está bajo la Licencia MIT - consulte el archivo [LICENSE](LICENSE.txt) para más detalles.
